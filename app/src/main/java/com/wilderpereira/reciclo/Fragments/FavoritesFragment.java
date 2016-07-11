@@ -12,17 +12,10 @@ import com.wilderpereira.reciclo.R;
 /**
  * Created by Wilder on 10/07/16.
  */
-public class StockFragment extends Fragment {
-    @Nullable
-    @Override
+public class FavoritesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.stock_fragment, container, false);
+        View view = inflater.inflate(R.layout.favorites_fragment, container, false);
         return view;
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 }
