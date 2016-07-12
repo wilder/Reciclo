@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class Recipe {
     String name;
-    String preparation;
+    Preparation preparation;
     int recycleCount;
     List<Resource> resouces;
 
@@ -19,11 +19,11 @@ public class Recipe {
         this.name = name;
     }
 
-    public String getPreparation() {
+    public Preparation getPreparation() {
         return preparation;
     }
 
-    public void setPreparation(String preparation) {
+    public void Preparation(Preparation preparation) {
         this.preparation = preparation;
     }
 

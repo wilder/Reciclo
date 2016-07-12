@@ -10,9 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633ccec4-f976-4ecf-89ea-fb7c7eb35ed9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Recipes.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Resource.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Preparation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Steps.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Recipe.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Recipe.java" />
     </list>
     <ignored path="Reciclo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,27 +89,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Recipes.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Recipes.java">
+      <file leaf-file-name="Recipe.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Recipe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.52560645">
-              <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.3638814">
+              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
               <folding>
-                <element signature="e#280#281#0" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
-                <element signature="e#352#353#0" expanded="true" />
-                <element signature="e#390#391#0" expanded="true" />
-                <element signature="e#424#425#0" expanded="true" />
-                <element signature="e#478#479#0" expanded="true" />
-                <element signature="e#524#525#0" expanded="true" />
-                <element signature="e#560#561#0" expanded="true" />
-                <element signature="e#595#596#0" expanded="true" />
-                <element signature="e#648#649#0" expanded="true" />
-                <element signature="e#696#697#0" expanded="true" />
-                <element signature="e#739#740#0" expanded="true" />
-                <element signature="e#770#771#0" expanded="true" />
-                <element signature="e#826#827#0" expanded="true" />
-                <element signature="e#866#867#0" expanded="true" />
+                <element signature="e#257#258#0" expanded="true" />
+                <element signature="e#284#285#0" expanded="true" />
+                <element signature="e#324#325#0" expanded="true" />
+                <element signature="e#356#357#0" expanded="true" />
+                <element signature="e#399#400#0" expanded="true" />
+                <element signature="e#433#434#0" expanded="true" />
+                <element signature="e#489#490#0" expanded="true" />
+                <element signature="e#535#536#0" expanded="true" />
+                <element signature="e#571#572#0" expanded="true" />
+                <element signature="e#606#607#0" expanded="true" />
+                <element signature="e#659#660#0" expanded="true" />
+                <element signature="e#707#708#0" expanded="true" />
+                <element signature="e#750#751#0" expanded="true" />
+                <element signature="e#781#782#0" expanded="true" />
+                <element signature="e#837#838#0" expanded="true" />
+                <element signature="e#877#878#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Steps.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Steps.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <element signature="e#155#156#0" expanded="true" />
+                <element signature="e#183#184#0" expanded="true" />
+                <element signature="e#225#226#0" expanded="true" />
+                <element signature="e#259#260#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1822,6 +1839,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/StockItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Resource.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Recipes.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Steps.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Preparation.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Recipe.java" />
       </list>
     </option>
   </component>
@@ -1981,6 +2001,7 @@
       <recent name="com.wilderpereira.reciclo.Activities" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.wilderpereira.reciclo.Models" />
       <recent name="com.wilderpereira.reciclo" />
       <recent name="com.wilderpereira.reciclo.Fragments" />
     </key>
@@ -2263,7 +2284,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32715008" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2275,7 +2296,7 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25928918" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288364" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32715008" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32715008" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2556,26 +2577,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Recipes.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Steps.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52560645">
-          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="e#280#281#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-            <element signature="e#352#353#0" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-            <element signature="e#424#425#0" expanded="true" />
-            <element signature="e#478#479#0" expanded="true" />
-            <element signature="e#524#525#0" expanded="true" />
-            <element signature="e#560#561#0" expanded="true" />
-            <element signature="e#595#596#0" expanded="true" />
-            <element signature="e#648#649#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#770#771#0" expanded="true" />
-            <element signature="e#826#827#0" expanded="true" />
-            <element signature="e#866#867#0" expanded="true" />
+            <element signature="e#155#156#0" expanded="true" />
+            <element signature="e#183#184#0" expanded="true" />
+            <element signature="e#225#226#0" expanded="true" />
+            <element signature="e#259#260#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Preparation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44474393">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding>
+            <element signature="e#223#224#0" expanded="true" />
+            <element signature="e#270#271#0" expanded="true" />
+            <element signature="e#304#305#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Models/Recipe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3638814">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="e#257#258#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+            <element signature="e#324#325#0" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#399#400#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#659#660#0" expanded="true" />
+            <element signature="e#707#708#0" expanded="true" />
+            <element signature="e#750#751#0" expanded="true" />
+            <element signature="e#781#782#0" expanded="true" />
+            <element signature="e#837#838#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
           </folding>
         </state>
       </provider>
