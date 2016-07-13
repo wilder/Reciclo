@@ -29,18 +29,17 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
     // you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        //public TextView itemName;
+        //public ImageView itemImage;
         public TextView itemAmount;
         public ImageButton btnLess;
         public ImageButton btnMore;
 
         public ViewHolder(View v) {
             super(v);
-            //itemName = (TextView) v.findViewById(R.id.);
             itemAmount = (TextView) v.findViewById(R.id.count);
             btnLess = (ImageButton) v.findViewById(R.id.ib_less);
             btnMore = (ImageButton) v.findViewById(R.id.ib_more);
-            //itemImage = (ImageView) v.findViewById(R.id.iv_item_image);
+            //itemImage = (ImageView) v.findViewById(R.id.iv_resource);
         }
     }
 
@@ -69,10 +68,10 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        //holder.mTextView.setText(mDataset[position]);
+
         stockItem = mDataset.get(position);
-        //holder.itemName.setText(stockItem.getName());
         holder.itemAmount.setText(stockItem.getAmount());
+        //holder.itemImage.Resource();
 
         holder.btnLess.setOnClickListener(new View.OnClickListener() {
             @Override
