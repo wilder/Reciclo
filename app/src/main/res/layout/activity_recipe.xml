@@ -124,13 +124,13 @@
                         android:textColor="@color/colorAccent"
                         android:text="Ingredients"/>
 
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/recycler_ingredients"
+                    <LinearLayout
+                        android:id="@+id/linear_ingredients"
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/activity_vertical_margin">
+                        android:layout_margin="@dimen/activity_vertical_margin"/>
 
-                    </android.support.v7.widget.RecyclerView>
 
 
                 </LinearLayout>
@@ -155,8 +155,9 @@
                         android:textColor="@color/colorAccent"
                         android:text="Preparation"/>
 
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/recycler_preparation"
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:id="@+id/linear_preparation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/activity_vertical_margin"/>
