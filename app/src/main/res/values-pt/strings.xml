@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Reciclo</string>
+    <string name="action_settings">Configurações</string>
+    <string name="ingredients">Ingredientes</string>
+    <string name="preparation">Preparação</string>
+    <string name="recicl">Reciclô!</string>
+    <string name="stock">Dispensa</string>
+    <string name="recycle">Recicle</string>
+    <string name="favorites">Favoritos</string>
+</resources>

@@ -52,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(final ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new StockFragment(), "Stock");
-        adapter.addFragment(new MainListFragment(), "Recycle");
-        adapter.addFragment(new FavoritesFragment(), "Favorites");
+        adapter.addFragment(new StockFragment(), getString(R.string.stock));
+        adapter.addFragment(new MainListFragment(), getString(R.string.recycle));
+        adapter.addFragment(new FavoritesFragment(), getString(R.string.favorites));
         viewPager.setAdapter(adapter);
     }
 }

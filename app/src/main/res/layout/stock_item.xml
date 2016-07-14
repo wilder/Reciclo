@@ -49,7 +49,6 @@
                     android:background="@color/colorPrimary"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:text="5"
                     android:textColor="#fff"
                     android:id="@+id/count"/>
 
