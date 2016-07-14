@@ -66,24 +66,26 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
         stockItem = mDataset.get(position);
         //TODO: look for firebase drawable storing
         //holder.itemImage.setImageDrawable();
-        holder.itemAmount.setText(stockItem.getAmount());
+        holder.itemAmount.setText(stockItem.getAmount()+"");
         //holder.itemImage.Resource();
 
         holder.btnLess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                stockItem = mDataset.get(position);
                 int newAmount = stockItem.getAmount()-1;
                 stockItem.setAmount(newAmount);
-                holder.itemAmount.setText(newAmount);
+                holder.itemAmount.setText(newAmount+"");
             }
         });
 
         holder.btnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                stockItem = mDataset.get(position);
                 int newAmount = stockItem.getAmount()+1;
                 stockItem.setAmount(newAmount);
-                holder.itemAmount.setText(newAmount);
+                holder.itemAmount.setText(newAmount+"");
             }
         });
 
