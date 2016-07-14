@@ -1,4 +1,4 @@
-package com.wilderpereira.reciclo.Models;
+package com.wilderpereira.reciclo.models;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class Recipe {
         return preparation;
     }
 
-    public void Preparation(Preparation preparation) {
+    public void setPreparation(Preparation preparation) {
         this.preparation = preparation;
     }
 

@@ -1,4 +1,4 @@
-package com.wilderpereira.reciclo.Models;
+package com.wilderpereira.reciclo.models;
 
 /**
  * Created by Wilder on 11/07/16.

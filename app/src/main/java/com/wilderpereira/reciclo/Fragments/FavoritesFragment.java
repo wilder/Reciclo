@@ -1,4 +1,4 @@
-package com.wilderpereira.reciclo.Fragments;
+package com.wilderpereira.reciclo.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

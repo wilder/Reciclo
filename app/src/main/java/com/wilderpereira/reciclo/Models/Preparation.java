@@ -1,4 +1,4 @@
-package com.wilderpereira.reciclo.Models;
+package com.wilderpereira.reciclo.models;
 
 import java.util.List;
 

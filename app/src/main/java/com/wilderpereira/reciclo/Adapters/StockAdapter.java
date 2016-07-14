@@ -1,4 +1,4 @@
-package com.wilderpereira.reciclo.Adapters;
+package com.wilderpereira.reciclo.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.wilderpereira.reciclo.Models.StockItem;
+import com.wilderpereira.reciclo.models.StockItem;
 import com.wilderpereira.reciclo.R;
 
 import java.util.ArrayList;

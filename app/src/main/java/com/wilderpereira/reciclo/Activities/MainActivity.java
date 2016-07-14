@@ -1,4 +1,4 @@
-package com.wilderpereira.reciclo.Activities;
+package com.wilderpereira.reciclo.activities;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
-import com.wilderpereira.reciclo.Adapters.ViewPagerAdapter;
-import com.wilderpereira.reciclo.Fragments.FavoritesFragment;
-import com.wilderpereira.reciclo.Fragments.MainListFragment;
-import com.wilderpereira.reciclo.Fragments.StockFragment;
+import com.wilderpereira.reciclo.adapters.ViewPagerAdapter;
+import com.wilderpereira.reciclo.fragments.FavoritesFragment;
+import com.wilderpereira.reciclo.fragments.MainListFragment;
+import com.wilderpereira.reciclo.fragments.StockFragment;
 import com.wilderpereira.reciclo.R;
 
 public class MainActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.wilderpereira.reciclo.Fragments;
+package com.wilderpereira.reciclo.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,8 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.wilderpereira.reciclo.Adapters.ItemAdapter;
-import com.wilderpereira.reciclo.Models.Recipe;
+import com.wilderpereira.reciclo.adapters.ItemAdapter;
+import com.wilderpereira.reciclo.models.Recipe;
+import com.wilderpereira.reciclo.models.Resource;
 import com.wilderpereira.reciclo.R;
 
 import java.util.ArrayList;
@@ -40,8 +41,21 @@ public class MainListFragment extends Fragment {
             Recipe r = new Recipe();
             r.setName("Item "+i+1);
             r.setRecycleCount(68*i);
+            r.setResouces(getRecipeResources());
             recipes.add(r);
         }
         return recipes;
+    }
+
+    private ArrayList<Resource> getRecipeResources(){
+        ArrayList<Resource> resources = new ArrayList<>();
+        Resource resource;
+        for (int i = 0; i < 4; i++){
+            resource = new Resource();
+            resource.setName("Recurso "+i+1);
+            resource.setAmount(3*i);
+            resources.add(resource);
+        }
+        return resources;
     }
 }

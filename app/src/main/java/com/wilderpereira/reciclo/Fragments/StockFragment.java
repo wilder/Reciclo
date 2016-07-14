@@ -1,4 +1,4 @@
-package com.wilderpereira.reciclo.Fragments;
+package com.wilderpereira.reciclo.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,9 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.wilderpereira.reciclo.Adapters.StockAdapter;
-import com.wilderpereira.reciclo.Models.Recipe;
-import com.wilderpereira.reciclo.Models.StockItem;
+import com.wilderpereira.reciclo.adapters.StockAdapter;
+import com.wilderpereira.reciclo.models.StockItem;
 import com.wilderpereira.reciclo.R;
 
 import java.util.ArrayList;
