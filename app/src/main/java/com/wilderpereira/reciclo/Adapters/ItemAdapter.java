@@ -2,6 +2,7 @@ package com.wilderpereira.reciclo.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,7 +26,7 @@ import static com.wilderpereira.reciclo.R.layout.item_item;
 /**
  * Created by Wilder on 12/07/16.
  */
-public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> implements Serializable {
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     
     private ArrayList<Recipe> mDataset;
     private Recipe recipe;
@@ -104,7 +105,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> im
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(),RecipeActivity.class);
-                intent.putExtra(context.getString(R.string.recipe_extra_key), (Serializable) mDataset.get(position));
+                intent.putExtra(context.getString(R.string.recipe_extra_key), mDataset.get(position));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 v.getContext().getApplicationContext().startActivity(intent);
             }
         });

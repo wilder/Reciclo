@@ -31,7 +31,7 @@ public class RecipeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipe);
 
         Bundle extras = getIntent().getExtras();
-        Recipe recipe = (Recipe) extras.get(getString(R.string.recipe_extra_key));
+        Recipe recipe = (Recipe) extras.getSerializable(getString(R.string.recipe_extra_key));
 
         itemName = (TextView) findViewById(R.id.tv_item);
         owner = (TextView) findViewById(R.id.tv_by);
@@ -44,8 +44,8 @@ public class RecipeActivity extends AppCompatActivity {
 
 
         itemName.setText(recipe.getName());
-        favoriteCount.setText(recipe.getRecycleCount()); //TODO: Change to favorite count (Also add on firebase)
-        recyleCount.setText(recipe.getRecycleCount());
+        favoriteCount.setText(recipe.getRecycleCount()+""); //TODO: Change to favorite count (Also add on firebase)
+        recyleCount.setText(recipe.getRecycleCount()+"");
 
         Preparation preparation = recipe.getPreparation();
         /*for(){
@@ -56,7 +56,7 @@ public class RecipeActivity extends AppCompatActivity {
         for (Resource resource : resources){
             int i = 1;
             TextView tvResource = new TextView(this);
-            tvResource.setText(resource.getName() + " "+ resource.getAmount());
+            tvResource.setText("x"+resource.getAmount()+ " "+resource.getName());
             tvResource.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT));

@@ -1,9 +1,11 @@
 package com.wilderpereira.reciclo.models;
 
+import java.io.Serializable;
+
 /**
  * Created by Wilder on 11/07/16.
  */
-public class Resource {
+public class Resource implements Serializable{
     int amount;
     String name;
     String type;

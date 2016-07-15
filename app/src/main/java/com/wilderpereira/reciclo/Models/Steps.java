@@ -1,9 +1,11 @@
 package com.wilderpereira.reciclo.models;
 
+import java.io.Serializable;
+
 /**
  * Created by Wilder on 11/07/16.
  */
-public class Steps {
+public class Steps implements Serializable{
 
     String steps;
 
