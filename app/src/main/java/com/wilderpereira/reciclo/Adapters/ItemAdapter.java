@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.wilderpereira.reciclo.activities.RecipeActivity;
+import com.wilderpereira.reciclo.fragments.ListFragment;
 import com.wilderpereira.reciclo.models.Recipe;
 import com.wilderpereira.reciclo.R;
 
@@ -31,6 +32,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     private ArrayList<Recipe> mDataset;
     private Recipe recipe;
     private Context context;
+    private @ListFragment.ListMode
+    int listMode;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -43,6 +46,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         public ImageView itemImage;
         public ImageButton btnFavorite;
         public ImageButton btnFShare;
+        //TODO: Add favorite view
 
         public ViewHolder(View v) {
             super(v);
@@ -57,8 +61,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     // Provide a suitable constructor (depends on the kind of dataset)
     //todo: change to item array
-    public ItemAdapter(ArrayList<Recipe> myDataset) {
+    public ItemAdapter(ArrayList<Recipe> myDataset, @ListFragment.ListMode int listMode) {
         mDataset = myDataset;
+        this.listMode = listMode;
     }
 
     // Create new views (invoked by the layout manager)
@@ -78,9 +83,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        //holder.mTextView.setText(mDataset[position]);
+
+        //TODO: Check mode to display favorite icon
+
         recipe = mDataset.get(position);
         holder.itemName.setText(recipe.getName());
         holder.recycleCount.setText("Reciclado "+recipe.getRecycleCount()+" vezes.");

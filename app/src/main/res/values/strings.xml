@@ -9,4 +9,5 @@
     <string name="recycle">Recycle</string>
     <string name="favorites">Favorites</string>
     <string name="recipe_extra_key">recipe_extra</string>
+    <string name="LIST_MODE_KEY">LIST_MODE_KEY</string>
 </resources>

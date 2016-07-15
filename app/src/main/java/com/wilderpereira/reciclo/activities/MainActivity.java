@@ -1,4 +1,4 @@
-package com.wilderpereira.reciclo;
+package com.wilderpereira.reciclo.activities;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -7,8 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.wilderpereira.reciclo.adapters.ViewPagerAdapter;
-import com.wilderpereira.reciclo.fragments.FavoritesFragment;
-import com.wilderpereira.reciclo.fragments.MainListFragment;
+import com.wilderpereira.reciclo.fragments.ListFragment;
 import com.wilderpereira.reciclo.fragments.StockFragment;
 import com.wilderpereira.reciclo.R;
 
@@ -53,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(final ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new StockFragment(), getString(R.string.stock));
-        adapter.addFragment(new MainListFragment(), getString(R.string.recycle));
-        adapter.addFragment(new FavoritesFragment(), getString(R.string.favorites));
+        adapter.addFragment(ListFragment.newInstance(ListFragment.LIST_MODE_DEFAULT, viewPager), getString(R.string.recycle));
+        adapter.addFragment(ListFragment.newInstance(ListFragment.LIST_MODE_FAVORITES, viewPager), getString(R.string.favorites));
         viewPager.setAdapter(adapter);
     }
 }
