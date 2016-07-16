@@ -17,4 +17,6 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="login_not_registered">Not Registered?\nCreate Account</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_registered">Already Registered?\nLogin</string>
 </resources>

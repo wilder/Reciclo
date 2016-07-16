@@ -8,7 +8,9 @@
     <string name="recycle">Recicle</string>
     <string name="favorites">Favoritos</string>
     <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="login">Login</string>
+    <string name="password">Senha</string>
+    <string name="login">Entrar</string>
     <string name="login_not_registered">Ainda não sou cadastrado\nCriar conta</string>
+    <string name="sign_up">Criar Conta</string>
+    <string name="already_registered">Já possui uma conta?\nEntre</string>
 </resources>
