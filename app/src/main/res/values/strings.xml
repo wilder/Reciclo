@@ -10,4 +10,11 @@
     <string name="favorites">Favorites</string>
     <string name="recipe_extra_key">recipe_extra</string>
     <string name="LIST_MODE_KEY">LIST_MODE_KEY</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="login_not_registered">Not Registered?\nCreate Account</string>
 </resources>

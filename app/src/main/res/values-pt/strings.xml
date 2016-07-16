@@ -7,4 +7,8 @@
     <string name="stock">Dispensa</string>
     <string name="recycle">Recicle</string>
     <string name="favorites">Favoritos</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="login_not_registered">Ainda não sou cadastrado\nCriar conta</string>
 </resources>

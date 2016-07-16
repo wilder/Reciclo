@@ -84,7 +84,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        //TODO: Check mode to display favorite icon
+        //TODO: Check mode to display favorite icongi
 
         recipe = mDataset.get(position);
         holder.itemName.setText(recipe.getName());
