@@ -35,7 +35,8 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/tip_email">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,12 +48,13 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/tip_pass">
             <EditText
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/et_senha"
+                android:id="@+id/et_pass"
                 android:hint="@string/password"
                 />
         </android.support.design.widget.TextInputLayout>
@@ -88,6 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_not_registered"
+            android:onClick="goToSignUp"
             android:text="@string/login_not_registered"/>
 
 

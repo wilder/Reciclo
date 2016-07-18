@@ -13,4 +13,6 @@
     <string name="login_not_registered">Ainda não sou cadastrado\nCriar conta</string>
     <string name="sign_up">Criar Conta</string>
     <string name="already_registered">Já possui uma conta?\nEntre</string>
+    <string name="email_empty">O email precisa ser preenchido</string>
+    <string name="password_empty">A senha precisa ser preenchida</string>
 </resources>

@@ -44,30 +44,32 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/tip_email">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:id="@+id/et_email"
+                android:id="@+id/et_email_s"
                 android:hint="@string/email"
                 />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/tip_pass">
             <EditText
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/et_senha"
+                android:id="@+id/et_pass_s"
                 android:hint="@string/password"
                 />
         </android.support.design.widget.TextInputLayout>
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorAccent"
@@ -97,7 +99,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_sign_up"
-            android:text="@string/already_registered"/>
+            android:text="@string/already_registered"
+            android:onClick="goToLogin"/>
 
 
     </LinearLayout>

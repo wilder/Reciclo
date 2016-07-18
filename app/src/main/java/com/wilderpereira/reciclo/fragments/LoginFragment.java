@@ -1,54 +1,70 @@
 package com.wilderpereira.reciclo.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.wilderpereira.reciclo.R;
+import com.wilderpereira.reciclo.activities.MainActivity;
+import com.wilderpereira.reciclo.utils.Utils;
 
 
 public class LoginFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    String email;
+    String pass;
 
     public LoginFragment() {
         // Required empty public constructor
     }
 
-
-    // TODO: Rename and change types and number of parameters
-    public static LoginFragment newInstance(String param1, String param2) {
-        LoginFragment fragment = new LoginFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        final View v = inflater.inflate(R.layout.fragment_login, container, false);
+        final EditText etEmail = (EditText) v.findViewById(R.id.et_email);
+        final EditText etPassword = (EditText) v.findViewById(R.id.et_pass);
+
+        Button btnLogin = (Button) v.findViewById(R.id.btn_login);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean areEditTextsEmpty = false;
+                email = etEmail.getText().toString();
+                pass = etPassword.getText().toString();
+
+                if(email.isEmpty()){
+                    Utils.setTextInputLayoutError((TextInputLayout) v.findViewById(R.id.tip_email),getString(R.string.email_empty));
+                    areEditTextsEmpty = true;
+                }
+
+                if(pass.isEmpty()){
+                    Utils.setTextInputLayoutError((TextInputLayout) v.findViewById(R.id.tip_pass),getString(R.string.password_empty));
+                    areEditTextsEmpty = true;
+                }
+
+                //TODO: Store login shared preferences
+                if(!areEditTextsEmpty){
+                    getContext().startActivity(new Intent(getContext(), MainActivity.class));
+                }
+            }
+        });
+
+        return v;
     }
 
 }
