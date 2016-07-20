@@ -21,4 +21,6 @@
     <string name="already_registered">Already Registered?\nLogin</string>
     <string name="email_empty">Email can\'t be empty</string>
     <string name="password_empty">Password can\'t be empty</string>
+    <string name="drawer_open">drawer_open</string>
+    <string name="drawer_close">drawer_close</string>
 </resources>
