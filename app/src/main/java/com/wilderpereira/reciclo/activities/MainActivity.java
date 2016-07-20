@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.wilderpereira.reciclo.adapters.ViewPagerAdapter;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     //Create array Resource
     private String[] drawerOptions = {"Test1", "Test2"};
     private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
+    private LinearLayout mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        mDrawerList = (LinearLayout) findViewById(R.id.left_drawer);
         setupDrawer();
 
 
@@ -81,8 +82,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupDrawer(){
         // Set the adapter for the list view
-        mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, drawerOptions));
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar
@@ -103,29 +102,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-
-    }
-
-    private class DrawerItemClickListener implements ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView parent, View view, int position, long id) {
-            selectItem(position);
-        }
-
-        /** Swaps fragments in the main content view */
-        private void selectItem(int position) {
-
-        /*Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.content_frame, fragment)
-                .commit();*/
-
-            // Highlight the selected item, update the title, and close the drawer
-            mDrawerList.setItemChecked(position, true);
-            mDrawerLayout.closeDrawer(mDrawerList);
-        }
 
     }
 }

@@ -27,8 +27,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633ccec4-f976-4ecf-89ea-fb7c7eb35ed9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_drawer.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/drawer_layout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
@@ -40,8 +39,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/activities/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/activities/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-pt/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-pt/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="Reciclo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,17 +69,15 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="35" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="35" />
+            <state vertical-scroll-proportion="-23.481482">
+              <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding>
-                <element signature="e#1395#1412#0" expanded="true" />
-                <element signature="class#1669:2068" expanded="false" />
-                <element signature="method#onTabSelected#0;class#1669:2068" expanded="false" />
+                <element signature="e#1435#1452#0" expanded="true" />
+                <element signature="class#1709:2108" expanded="false" />
+                <element signature="method#onTabSelected#0;class#1709:2108" expanded="false" />
                 <element signature="method#setupViewPager#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#setupDrawer#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#3150#3170#0" expanded="true" />
-                <element signature="e#3172#3193#0" expanded="true" />
-                <element signature="class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#3062#3082#0" expanded="true" />
+                <element signature="e#3084#3105#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,11 +86,9 @@
       <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.1320755">
-              <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
-              <folding>
-                <element signature="e#1967#2007#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-13.867925">
+              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
           <provider editor-type-id="android-designer">
@@ -103,12 +96,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bar.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bar.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/bar.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3301887">
+            <state vertical-scroll-proportion="-1.981132">
               <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
               <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="drawer_layout.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/drawer_layout.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.64453125">
+              <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
+              <folding>
+                <element signature="e#754#789#0" expanded="true" />
+                <element signature="e#1081#1116#0" expanded="true" />
+                <element signature="e#1740#1773#0" expanded="true" />
+                <element signature="e#2128#2163#0" expanded="true" />
+              </folding>
             </state>
           </provider>
           <provider editor-type-id="android-designer">
@@ -1751,7 +1762,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/Adapters/ViewPagerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/FavoritesFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/stock_fragment.xml" />
@@ -1799,9 +1809,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_sign_up.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/fragments/SignUpFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/utils/DrawerItemClickListener.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/bar.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/bar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/drawer_layout.xml" />
       </list>
     </option>
   </component>
@@ -2265,7 +2276,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21753794" sideWeight="0.50646204" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32715008" sideWeight="0.49353796" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32715008" sideWeight="0.49353796" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25928918" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32715008" sideWeight="0.49353796" order="2" side_tool="false" content_ui="tabs" />
@@ -2308,13 +2319,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/models/Stock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/models/Favorites.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2327,14 +2331,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1395#1412#0" expanded="true" />
-            <element signature="class#1669:2068" expanded="false" />
-            <element signature="method#onTabSelected#0;class#1669:2068" expanded="false" />
+            <element signature="e#1435#1452#0" expanded="true" />
+            <element signature="class#1709:2108" expanded="false" />
+            <element signature="method#onTabSelected#0;class#1709:2108" expanded="false" />
             <element signature="method#setupViewPager#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#setupDrawer#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#3150#3170#0" expanded="true" />
-            <element signature="e#3172#3193#0" expanded="true" />
-            <element signature="class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#3062#3082#0" expanded="true" />
+            <element signature="e#3084#3105#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2698,39 +2700,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wilderpereira/reciclo/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="35" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="35" />
+        <state vertical-scroll-proportion="-23.481482">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding>
-            <element signature="e#1395#1412#0" expanded="true" />
-            <element signature="class#1669:2068" expanded="false" />
-            <element signature="method#onTabSelected#0;class#1669:2068" expanded="false" />
+            <element signature="e#1435#1452#0" expanded="true" />
+            <element signature="class#1709:2108" expanded="false" />
+            <element signature="method#onTabSelected#0;class#1709:2108" expanded="false" />
             <element signature="method#setupViewPager#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#setupDrawer#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#3150#3170#0" expanded="true" />
-            <element signature="e#3172#3193#0" expanded="true" />
-            <element signature="class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#3062#3082#0" expanded="true" />
+            <element signature="e#3084#3105#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/bar.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1320755">
-          <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
-          <folding>
-            <element signature="e#1967#2007#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-1.981132">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/bar.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3301887">
-          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+        <state vertical-scroll-proportion="-13.867925">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/drawer_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64453125">
+          <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
+          <folding>
+            <element signature="e#754#789#0" expanded="true" />
+            <element signature="e#1081#1116#0" expanded="true" />
+            <element signature="e#1740#1773#0" expanded="true" />
+            <element signature="e#2128#2163#0" expanded="true" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer">
