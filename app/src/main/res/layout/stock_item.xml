@@ -19,6 +19,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
+                android:background="@drawable/ic_remove_black_24dp"
                 android:id="@+id/ib_less"
                 android:layout_width="40dp"
                 android:layout_height="40dp"/>
@@ -38,6 +39,7 @@
                 android:layout_height="65dp" />
 
             <FrameLayout
+                android:background="@drawable/circle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|right"
@@ -46,7 +48,6 @@
 
                 <TextView
                     android:gravity="center"
-                    android:background="@color/colorPrimary"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:textColor="#fff"
@@ -64,6 +65,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
+                android:background="@drawable/ic_add_black_24dp"
                 android:id="@+id/ib_more"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
