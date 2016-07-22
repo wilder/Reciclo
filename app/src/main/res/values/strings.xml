@@ -23,4 +23,9 @@
     <string name="password_empty">Password can\'t be empty</string>
     <string name="drawer_open">drawer_open</string>
     <string name="drawer_close">drawer_close</string>
+    <string name="login_state">login_state</string>
+    <string name="login_state_signed_in">signed_in</string>
+    <string name="login_state_signed_out">signed_out</string>
+    <string name="invalid_credentials">Invalid credentials</string>
+    <string name="user_exists">This user already exists</string>
 </resources>

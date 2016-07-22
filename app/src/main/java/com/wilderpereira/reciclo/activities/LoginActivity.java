@@ -1,12 +1,17 @@
 package com.wilderpereira.reciclo.activities;
 
-import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.fragments.LoginFragment;
 import com.wilderpereira.reciclo.fragments.SignUpFragment;
@@ -14,21 +19,46 @@ import com.wilderpereira.reciclo.utils.FragmentUtils;
 
 public class LoginActivity extends AppCompatActivity {
 
-    FragmentTransaction fragmentTransaction;
-
+    private FragmentTransaction fragmentTransaction;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private final String TAG = getClass().getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        mAuth = FirebaseAuth.getInstance();
+
+        /**Don't worry about creating a new user every time.
+         * This activity is only called when the user is not logged in*/
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    /** Called only when user creates an account*/
+                    //TODO: create new users node.
+                    /*FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("test");
+                    myRef.setValue("test");*/
+
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                }
+            }
+        };
+
+
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         // Checks that the activity is using the layout version with the fragment_container FrameLayout
-        if(findViewById(R.id.fragment_container) != null)
-        {
+        if (findViewById(R.id.fragment_container) != null) {
             // if we are being restored from a previous state, then we dont need to do anything and should
             // return or else we could end up with overlapping fragments.
-            if(savedInstanceState != null)
+            if (savedInstanceState != null)
                 return;
 
             Fragment fragment;
@@ -39,7 +69,20 @@ public class LoginActivity extends AppCompatActivity {
             fragmentTransaction.add(R.id.fragment_container, fragment).commit();
 
         }
+    }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 
     public void goToLogin(View view) {
