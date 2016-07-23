@@ -15,7 +15,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.fragments.LoginFragment;
 import com.wilderpereira.reciclo.fragments.SignUpFragment;
+import com.wilderpereira.reciclo.models.StockItem;
 import com.wilderpereira.reciclo.utils.FragmentUtils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -39,9 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (user != null) {
                     /** Called only when user creates an account*/
                     //TODO: create new users node.
-                    /*FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("test");
-                    myRef.setValue("test");*/
+                    addNewUser(user.getUid(),user.getEmail());
 
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
@@ -92,4 +97,42 @@ public class LoginActivity extends AppCompatActivity {
     public void goToSignUp(View view) {
         FragmentUtils.navigate(getSupportFragmentManager().beginTransaction(),R.id.fragment_container,new SignUpFragment());
     }
+
+    //TODO: Move methods below to new class
+    //TODO: Add new favorites' node/method
+
+    /** Creates a new user's node */
+    private void addNewUser(String userId, String name){
+        String stockKey = createEmptyStock();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("users").child(userId);
+        Map<String, String> user = new HashMap<>();
+        user.put("name",name);
+        user.put("favorites","fid");
+        user.put("stock",stockKey);
+        myRef.setValue(user);
+    }
+
+    /** Returns stock key that is used to create the new users' stock */
+    private String createEmptyStock(){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
+        String key = database.getReference("stocks").push().getKey();
+
+        //Default items TODO: Create default items on firebase
+        Map<String, Object> stockItensNode = new HashMap<>();
+        //TODO: add type to item
+        stockItensNode.put("glass_a", new StockItem("Glass",0).toMap());
+        stockItensNode.put("plastic_a", new StockItem("Plastic",0).toMap());
+        stockItensNode.put("paper_a", new StockItem("Paper",0).toMap());
+        stockItensNode.put("Metal_a", new StockItem("Metal",0).toMap());
+
+        //Creates the new node
+        Map<String, Object> stockNode = new HashMap<>();
+        stockNode.put("stocks/"+key+"/itens",stockItensNode);
+        myRef.updateChildren(stockNode);
+
+        return key;
+    }
+
 }

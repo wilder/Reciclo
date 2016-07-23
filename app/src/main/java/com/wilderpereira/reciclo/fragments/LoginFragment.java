@@ -26,7 +26,6 @@ import com.wilderpereira.reciclo.utils.Utils;
 public class LoginFragment extends Fragment {
 
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
     private String email;
     private String pass;
 
@@ -37,7 +36,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
