@@ -1,5 +1,8 @@
 package com.wilderpereira.reciclo.fragments;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
@@ -10,10 +13,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.wilderpereira.reciclo.activities.RecipeActivity;
 import com.wilderpereira.reciclo.adapters.ItemAdapter;
 import com.wilderpereira.reciclo.models.Recipe;
 import com.wilderpereira.reciclo.models.Resource;
 import com.wilderpereira.reciclo.R;
+import com.wilderpereira.reciclo.viewholder.ItemViewHolder;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -25,6 +33,9 @@ import java.util.ArrayList;
 public class ListFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
+    private DatabaseReference mDatabase;
+    private FirebaseRecyclerAdapter<Recipe, ItemViewHolder> adapter;
+
     @ListFragment.ListMode
     private int listMode = LIST_MODE_DEFAULT;
 
@@ -46,7 +57,10 @@ public class ListFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+
         View view = inflater.inflate(R.layout.recycle_fragment, container, false);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         if(getArguments().getInt(getString(R.string.LIST_MODE_KEY)) == LIST_MODE_DEFAULT){
             this.listMode = LIST_MODE_DEFAULT;
@@ -54,7 +68,38 @@ public class ListFragment extends Fragment {
             this.listMode = LIST_MODE_FAVORITES;
         }
 
-        ItemAdapter adapter = new ItemAdapter(loadRecipesIntoList(), this.listMode);
+        Query postsQuery = mDatabase.child("recipes");
+        adapter = new FirebaseRecyclerAdapter<Recipe, ItemViewHolder>(Recipe.class, R.layout.item_item,
+                ItemViewHolder.class, postsQuery) {
+            @Override
+            protected void populateViewHolder(final ItemViewHolder viewHolder, final Recipe model, final int position) {
+                final DatabaseReference postRef = getRef(position);
+
+                // Set click listener for the whole post view
+                final String postKey = postRef.getKey();
+                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Launch RecipeActivity
+                        Intent intent = new Intent(v.getContext(),RecipeActivity.class);
+                        intent.putExtra(getString(R.string.recipe_extra_key), postKey);
+                        startActivity(intent);
+                    }
+                });
+
+                // Bind Post to ViewHolder, setting OnClickListener for the star button
+                viewHolder.bindToPost(model, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View starView) {
+
+                    }
+                });
+            }
+        };
+
+
+
+
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler);
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -62,29 +107,5 @@ public class ListFragment extends Fragment {
         return view;
     }
 
-    private ArrayList<Recipe> loadRecipesIntoList(){
-        //TODO: Check mode to load favorites or default recipes from firebase
-        ArrayList<Recipe> recipes = new ArrayList<>();
-        for (int i = 0; i < 8; i++){
-            Recipe r = new Recipe();
-            r.setName("Item "+i+1);
-            r.setRecycleCount(68*i);
-            r.setResouces(getRecipeResources());
-            recipes.add(r);
-        }
-        return recipes;
-    }
-
-    private ArrayList<Resource> getRecipeResources(){
-        ArrayList<Resource> resources = new ArrayList<>();
-        Resource resource;
-        for (int i = 0; i < 4; i++){
-            resource = new Resource();
-            resource.setName("Recurso "+i+1);
-            resource.setAmount(3*i);
-            resources.add(resource);
-        }
-        return resources;
-    }
 
 }
