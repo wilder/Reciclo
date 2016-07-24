@@ -7,10 +7,13 @@ import java.util.List;
  * Created by Wilder on 11/07/16.
  */
 public class Recipe implements Serializable {
-    String name;
-    Preparation preparation;
-    int recycleCount;
-    List<Resource> resouces;
+    private String name;
+    private String preparation;
+    private int recycleCount;
+    private String resouce;
+
+    public Recipe() {
+    }
 
     public String getName() {
         return name;
@@ -20,11 +23,11 @@ public class Recipe implements Serializable {
         this.name = name;
     }
 
-    public Preparation getPreparation() {
+    public String getPreparation() {
         return preparation;
     }
 
-    public void setPreparation(Preparation preparation) {
+    public void setPreparation(String preparation) {
         this.preparation = preparation;
     }
 
@@ -36,11 +39,11 @@ public class Recipe implements Serializable {
         this.recycleCount = recycleCount;
     }
 
-    public List<Resource> getResouces() {
-        return resouces;
+    public String getResouces() {
+        return resouce;
     }
 
-    public void setResouces(List<Resource> resouces) {
-        this.resouces = resouces;
+    public void setResouces(String resouces) {
+        this.resouce = resouces;
     }
 }

@@ -47,13 +47,13 @@ public class RecipeActivity extends AppCompatActivity {
         favoriteCount.setText(recipe.getRecycleCount()+""); //TODO: Change to favorite count (Also add on firebase)
         recyleCount.setText(recipe.getRecycleCount()+"");
 
-        Preparation preparation = recipe.getPreparation();
+        String preparation = recipe.getPreparation();
         /*for(){
 
         }*/
 
-        List<Resource> resources = recipe.getResouces();
-        for (Resource resource : resources){
+        String resources = recipe.getResouces();
+        /*for (Resource resource : resources){
             int i = 1;
             TextView tvResource = new TextView(this);
             tvResource.setText("x"+resource.getAmount()+ " "+resource.getName());
@@ -62,7 +62,7 @@ public class RecipeActivity extends AppCompatActivity {
                     LinearLayout.LayoutParams.WRAP_CONTENT));
             linearIngredients.addView(tvResource);
             i++;
-        }
+        }*/
     }
 
 }
