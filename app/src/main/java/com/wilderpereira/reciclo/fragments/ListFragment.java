@@ -75,6 +75,9 @@ public class ListFragment extends Fragment {
             protected void populateViewHolder(final ItemViewHolder viewHolder, final Recipe model, final int position) {
                 final DatabaseReference postRef = getRef(position);
 
+                if(listMode == LIST_MODE_FAVORITES){
+                    viewHolder.imgStar.setVisibility(View.VISIBLE);
+                }
                 // Set click listener for the whole post view
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override

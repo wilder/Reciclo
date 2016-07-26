@@ -19,6 +19,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
     public TextView itemName;
     public TextView recycleCount;
     public ImageView itemImage;
+    public ImageView imgStar;
     public ImageButton btnFavorite;
     public ImageButton btnFShare;
     //TODO: Add favorite view
@@ -31,6 +32,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
             btnFavorite = (ImageButton) v.findViewById(R.id.ib_favorite);
             btnFShare = (ImageButton) v.findViewById(R.id.ib_share);
             linearItem = (LinearLayout) v.findViewById(R.id.linear_item);
+            imgStar = (ImageView) v.findViewById(R.id.img_favorite);
     }
 
     public void bindToPost(Recipe recipe, View.OnClickListener starClickListener) {
