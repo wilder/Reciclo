@@ -7,14 +7,17 @@ import java.io.Serializable;
  */
 public class Steps implements Serializable{
 
-    String steps;
+    private String description;
 
-    public String getSteps() {
-        return steps;
+    public Steps() {
+
     }
 
-    public void setSteps(String steps) {
-        this.steps = steps;
+    public String getDescription() {
+        return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
