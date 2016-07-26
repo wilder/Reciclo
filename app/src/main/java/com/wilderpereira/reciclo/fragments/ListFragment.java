@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.wilderpereira.reciclo.activities.RecipeActivity;
-import com.wilderpereira.reciclo.adapters.ItemAdapter;
 import com.wilderpereira.reciclo.models.Recipe;
 import com.wilderpereira.reciclo.models.Resource;
 import com.wilderpereira.reciclo.R;
@@ -25,7 +25,7 @@ import com.wilderpereira.reciclo.viewholder.ItemViewHolder;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.util.ArrayList;
+
 
 /**
  * Created by Wilder on 10/07/16.
@@ -76,13 +76,12 @@ public class ListFragment extends Fragment {
                 final DatabaseReference postRef = getRef(position);
 
                 // Set click listener for the whole post view
-                final String postKey = postRef.getKey();
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         // Launch RecipeActivity
                         Intent intent = new Intent(v.getContext(),RecipeActivity.class);
-                        intent.putExtra(getString(R.string.recipe_extra_key), postKey);
+                        intent.putExtra(getString(R.string.recipe_extra_key), model);
                         startActivity(intent);
                     }
                 });
