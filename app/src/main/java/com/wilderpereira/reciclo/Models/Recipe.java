@@ -10,7 +10,7 @@ public class Recipe implements Serializable {
     private String name;
     private String preparation;
     private int recycleCount;
-    private String resouce;
+    private String resource;
 
     public Recipe() {
     }
@@ -39,11 +39,11 @@ public class Recipe implements Serializable {
         this.recycleCount = recycleCount;
     }
 
-    public String getResouces() {
-        return resouce;
+    public String getResource() {
+        return resource;
     }
 
-    public void setResouces(String resouces) {
-        this.resouce = resouces;
+    public void setResource(String resource) {
+        this.resource = resource;
     }
 }
