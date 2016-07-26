@@ -6,9 +6,12 @@ import java.io.Serializable;
  * Created by Wilder on 11/07/16.
  */
 public class Resource implements Serializable{
-    int amount;
-    String name;
-    String type;
+    private int amount;
+    private String name;
+    private String type;
+
+    public Resource() {
+    }
 
     public int getAmount() {
         return amount;
