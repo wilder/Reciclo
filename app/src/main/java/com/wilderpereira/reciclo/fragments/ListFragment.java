@@ -68,6 +68,8 @@ public class ListFragment extends Fragment {
             this.listMode = LIST_MODE_FAVORITES;
         }
 
+        final Boolean isFavorite = listMode == LIST_MODE_FAVORITES;
+
         Query postsQuery = mDatabase.child("recipes");
         adapter = new FirebaseRecyclerAdapter<Recipe, ItemViewHolder>(Recipe.class, R.layout.item_item,
                 ItemViewHolder.class, postsQuery) {
@@ -75,9 +77,17 @@ public class ListFragment extends Fragment {
             protected void populateViewHolder(final ItemViewHolder viewHolder, final Recipe model, final int position) {
                 final DatabaseReference postRef = getRef(position);
 
-                if(listMode == LIST_MODE_FAVORITES){
-                    viewHolder.imgStar.setVisibility(View.VISIBLE);
+                if(isFavorite){
+                    viewHolder.imgStar.setImageResource(R.drawable.circle);
                 }
+
+                viewHolder.imgStar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+
                 // Set click listener for the whole post view
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override

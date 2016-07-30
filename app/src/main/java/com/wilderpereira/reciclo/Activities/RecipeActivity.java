@@ -54,7 +54,7 @@ public class  RecipeActivity extends AppCompatActivity {
 
 
         itemName.setText(recipe.getName());
-        favoriteCount.setText(recipe.getRecycleCount()+""); //TODO: Change to favorite count (Also add on firebase)
+        favoriteCount.setText(recipe.getFavoriteCount()+""); //TODO: Change to favorite count (Also add on firebase)
         recyleCount.setText(recipe.getRecycleCount()+"");
 
         String preparationId = recipe.getPreparation();

@@ -19,4 +19,5 @@
     <string name="drawer_close">drawer_close</string>
     <string name="invalid_credentials">Credenciais Inválidas</string>
     <string name="user_exists">Um usuário com esse email já existe</string>
+    <string name="stars">" stars"</string>
 </resources>

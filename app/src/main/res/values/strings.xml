@@ -28,4 +28,5 @@
     <string name="login_state_signed_out">signed_out</string>
     <string name="invalid_credentials">Invalid credentials</string>
     <string name="user_exists">This user already exists</string>
+    <string name="stars">" stars"</string>
 </resources>

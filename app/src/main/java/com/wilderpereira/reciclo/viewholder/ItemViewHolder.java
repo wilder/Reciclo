@@ -17,12 +17,13 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
 
     public LinearLayout linearItem;
     public TextView itemName;
+    public TextView favoriteCount;
     public TextView recycleCount;
     public ImageView itemImage;
     public ImageView imgStar;
     public ImageButton btnFavorite;
     public ImageButton btnFShare;
-    //TODO: Add favorite view
+    public String star;
 
     public ItemViewHolder(View v) {
             super(v);
@@ -33,12 +34,14 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
             btnFShare = (ImageButton) v.findViewById(R.id.ib_share);
             linearItem = (LinearLayout) v.findViewById(R.id.linear_item);
             imgStar = (ImageView) v.findViewById(R.id.img_favorite);
+            favoriteCount = (TextView) v.findViewById(R.id.tv_favorite_count);
+            star = v.getResources().getString(R.string.stars);
     }
 
     public void bindToPost(Recipe recipe, View.OnClickListener starClickListener) {
         itemName.setText(recipe.getName());
         recycleCount.setText("Reciclado "+recipe.getRecycleCount()+" vezes.");
-        //TODO: favoriteView.setonclicklistener(starclicklistener)
+        favoriteCount.setText(recipe.getFavoriteCount()+star);
     }
 
 

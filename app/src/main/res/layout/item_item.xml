@@ -22,8 +22,7 @@
                     android:layout_height="160dp" />
 
                 <ImageView
-                    android:src="@android:drawable/star_big_on"
-                    android:visibility="gone"
+                    android:src="@drawable/star"
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
