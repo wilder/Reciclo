@@ -99,7 +99,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //TODO: Move methods below to new class
-    //TODO: Add new favorites' node/method
 
     /** Creates a new user's node */
     private void addNewUser(String userId, String name){
@@ -108,7 +107,6 @@ public class LoginActivity extends AppCompatActivity {
         DatabaseReference myRef = database.getReference("users").child(userId);
         Map<String, String> user = new HashMap<>();
         user.put("name",name);
-        user.put("favorites","fid");
         user.put("stock",stockKey);
         myRef.setValue(user);
     }
