@@ -2,7 +2,7 @@
 
 Android Recycling App
 
-Firebase Reciclô Recipes management tool's repo: https://github.com/viniciuslcpereira97/Reciclo
+Firebase Reciclo Recipes' management tool's repo: https://github.com/viniciuslcpereira97/Reciclo
 
 # License
     Copyright (C) 2016  Wilder Pereira
