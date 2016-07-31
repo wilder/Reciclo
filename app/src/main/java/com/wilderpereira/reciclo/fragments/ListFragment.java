@@ -21,6 +21,7 @@ import com.wilderpereira.reciclo.activities.RecipeActivity;
 import com.wilderpereira.reciclo.models.Recipe;
 import com.wilderpereira.reciclo.models.Resource;
 import com.wilderpereira.reciclo.R;
+import com.wilderpereira.reciclo.utils.Utils;
 import com.wilderpereira.reciclo.viewholder.ItemViewHolder;
 
 import java.lang.annotation.Retention;
@@ -86,25 +87,7 @@ public class ListFragment extends Fragment {
                 viewHolder.imgStar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(isFavorite){
-                            /**
-                             * Removes from user favorites and
-                             * decreases the recipe favorites count.
-                             * */
-                            Map<String, Object> favoriteCount = new HashMap<String, Object>();
-                            favoriteCount.put("favoriteCount", model.getFavoriteCount()-1);
-                            recipeRef.updateChildren(favoriteCount);
-                            //TODO: Add to favorites
-                        }else{
-                            /**
-                             * Adds the recipe to user favorites and
-                             * increases is favorites count.
-                             * */
-                            Map<String, Object> favoriteCount = new HashMap<String, Object>();
-                            favoriteCount.put("favoriteCount", model.getFavoriteCount()+1);
-                            recipeRef.updateChildren(favoriteCount);
-                            //TODO: Add to favorites
-                        }
+                            Utils.onStarClicked(recipeRef, Utils.getUid());
                     }
                 });
 
