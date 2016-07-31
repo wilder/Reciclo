@@ -1,7 +1,9 @@
 package com.wilderpereira.reciclo.models;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Wilder on 11/07/16.
@@ -12,6 +14,7 @@ public class Recipe implements Serializable {
     private int recycleCount;
     private int favoriteCount;
     private String resource;
+    public Map<String, Boolean> favoritedBy = new HashMap<>();
 
     public Recipe() {
     }
@@ -54,5 +57,13 @@ public class Recipe implements Serializable {
 
     public void setFavoriteCount(int favoriteCount) {
         this.favoriteCount = favoriteCount;
+    }
+
+    public Map<String, Boolean> getFavoritedBy() {
+        return favoritedBy;
+    }
+
+    public void setFavoritedBy(Map<String, Boolean> favoritedBy) {
+        this.favoritedBy = favoritedBy;
     }
 }
