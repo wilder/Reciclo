@@ -25,6 +25,8 @@ import com.wilderpereira.reciclo.viewholder.ItemViewHolder;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -75,7 +77,7 @@ public class ListFragment extends Fragment {
                 ItemViewHolder.class, postsQuery) {
             @Override
             protected void populateViewHolder(final ItemViewHolder viewHolder, final Recipe model, final int position) {
-                final DatabaseReference postRef = getRef(position);
+                final DatabaseReference recipeRef = getRef(position);
 
                 if(isFavorite){
                     viewHolder.imgStar.setImageResource(R.drawable.circle);
@@ -84,7 +86,25 @@ public class ListFragment extends Fragment {
                 viewHolder.imgStar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        if(isFavorite){
+                            /**
+                             * Removes from user favorites and
+                             * decreases the recipe favorites count.
+                             * */
+                            Map<String, Object> favoriteCount = new HashMap<String, Object>();
+                            favoriteCount.put("favoriteCount", model.getFavoriteCount()-1);
+                            recipeRef.updateChildren(favoriteCount);
+                            //TODO: Add to favorites
+                        }else{
+                            /**
+                             * Adds the recipe to user favorites and
+                             * increases is favorites count.
+                             * */
+                            Map<String, Object> favoriteCount = new HashMap<String, Object>();
+                            favoriteCount.put("favoriteCount", model.getFavoriteCount()+1);
+                            recipeRef.updateChildren(favoriteCount);
+                            //TODO: Add to favorites
+                        }
                     }
                 });
 
