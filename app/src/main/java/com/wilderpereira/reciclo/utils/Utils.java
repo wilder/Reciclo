@@ -21,6 +21,7 @@ import java.util.Objects;
 public class Utils {
 
     public static String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    private static FirebaseDatabase mDatabase;
 
     public static void setTextInputLayoutError(TextInputLayout textInputLayout, String message){
         textInputLayout.setErrorEnabled(true);
@@ -41,8 +42,11 @@ public class Utils {
                     p.setFavoriteCount(p.getFavoriteCount()-1);
                     p.favoritedBy.remove(uid);
 
-                    DatabaseReference favorites =  postRef.getRoot().child("favorites").child(uid).child(postRef.getKey());
+                    DatabaseReference favorites =  getDatabase().getReference().child("favorites").child(uid).child(postRef.getKey());
                     favorites.removeValue();
+
+                    DatabaseReference recipe =  getDatabase().getReference().child("recipes").child(postRef.getKey()).child("favoritedBy").child(uid);
+                    recipe.removeValue();
                     Log.d("TEST","Removing favs");
 
                 } else {
@@ -72,6 +76,14 @@ public class Utils {
                 Log.d(getClass().getSimpleName(), "postTransaction:onComplete:" + databaseError);
             }
         });
+    }
+
+    public static FirebaseDatabase getDatabase() {
+        if (mDatabase == null) {
+            mDatabase = FirebaseDatabase.getInstance();
+            mDatabase.setPersistenceEnabled(true);
+        }
+        return mDatabase;
     }
 
 }
