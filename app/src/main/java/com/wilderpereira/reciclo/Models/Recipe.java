@@ -66,4 +66,15 @@ public class Recipe implements Serializable {
     public void setFavoritedBy(Map<String, Boolean> favoritedBy) {
         this.favoritedBy = favoritedBy;
     }
+
+    public Map toMap(){
+        Map<String, Object> result = new HashMap<>();
+        result.put("name", name);
+        result.put("preparation",preparation);
+        result.put("recycleCount",recycleCount);
+        result.put("resource",resource);
+        result.put("favoriteCount",favoriteCount);
+        result.put("favoritedBy",favoritedBy);
+        return result;
+    }
 }
