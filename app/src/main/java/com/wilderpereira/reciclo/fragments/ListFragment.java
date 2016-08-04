@@ -9,7 +9,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,44 +18,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.wilderpereira.reciclo.activities.RecipeActivity;
 import com.wilderpereira.reciclo.models.Recipe;
-import com.wilderpereira.reciclo.models.Resource;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.utils.Utils;
 import com.wilderpereira.reciclo.viewholder.ItemViewHolder;
-
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
  * Created by Wilder on 10/07/16.
  */
-public class ListFragment extends Fragment {
+public abstract class ListFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private DatabaseReference mDatabase;
     private FirebaseRecyclerAdapter<Recipe, ItemViewHolder> adapter;
 
-    @ListFragment.ListMode
-    private int listMode = LIST_MODE_DEFAULT;
-
-    @Retention(RetentionPolicy.SOURCE)
-    @IntDef( {LIST_MODE_FAVORITES, LIST_MODE_DEFAULT})
-    public @interface ListMode{}
-
-    public static final int LIST_MODE_DEFAULT = 0;
-    public static final int LIST_MODE_FAVORITES = 1;
-
-    public static final ListFragment newInstance(@ListMode int listMode, View view)
-    {
-        ListFragment fragment = new ListFragment();
-        Bundle bundle = new Bundle(1);
-        bundle.putInt(view.getContext().getString(R.string.LIST_MODE_KEY), listMode);
-        fragment.setArguments(bundle);
-        return fragment ;
-    }
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -65,29 +40,21 @@ public class ListFragment extends Fragment {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        if(getArguments().getInt(getString(R.string.LIST_MODE_KEY)) == LIST_MODE_DEFAULT){
-            this.listMode = LIST_MODE_DEFAULT;
-        }else{
-            this.listMode = LIST_MODE_FAVORITES;
-        }
-
-        final Boolean isFavorite = listMode == LIST_MODE_FAVORITES;
-
-        Query postsQuery = mDatabase.child("recipes");
+        Query postsQuery = getQuery(mDatabase);
         adapter = new FirebaseRecyclerAdapter<Recipe, ItemViewHolder>(Recipe.class, R.layout.item_item,
                 ItemViewHolder.class, postsQuery) {
             @Override
             protected void populateViewHolder(final ItemViewHolder viewHolder, final Recipe model, final int position) {
                 final DatabaseReference recipeRef = getRef(position);
 
-                if(isFavorite){
+                if(model.favoritedBy.containsKey(Utils.uid)){
                     viewHolder.imgStar.setImageResource(R.drawable.circle);
                 }
 
                 viewHolder.imgStar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                            Utils.onStarClicked(recipeRef, Utils.getUid());
+                        Utils.onStarClicked(recipeRef, Utils.uid);
                     }
                 });
 
@@ -122,5 +89,6 @@ public class ListFragment extends Fragment {
         return view;
     }
 
+    public abstract Query getQuery(DatabaseReference databaseReference);
 
 }
