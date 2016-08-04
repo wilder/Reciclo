@@ -11,15 +11,12 @@ import android.widget.TextView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.wilderpereira.reciclo.models.Preparation;
 import com.wilderpereira.reciclo.models.Recipe;
 import com.wilderpereira.reciclo.models.Resource;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.models.Steps;
-
-import java.util.List;
+import com.wilderpereira.reciclo.utils.Utils;
 
 public class  RecipeActivity extends AppCompatActivity {
 
@@ -38,7 +35,7 @@ public class  RecipeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = Utils.getDatabase().getReference();
 
         Bundle extras = getIntent().getExtras();
         Recipe recipe = (Recipe) extras.getSerializable(getString(R.string.recipe_extra_key));

@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.wilderpereira.reciclo.activities.RecipeActivity;
 import com.wilderpereira.reciclo.models.Recipe;
@@ -38,7 +37,7 @@ public abstract class ListFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.recycle_fragment, container, false);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = Utils.getDatabase().getReference();
 
         Query postsQuery = getQuery(mDatabase);
         adapter = new FirebaseRecyclerAdapter<Recipe, ItemViewHolder>(Recipe.class, R.layout.item_item,
