@@ -34,7 +34,6 @@
 
             <ImageView
                 android:id="@+id/iv_resource"
-                android:background="@color/colorAccent"
                 android:layout_width="65dp"
                 android:layout_height="65dp" />
 

@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.wilderpereira.reciclo.models.StockItem;
 import com.wilderpereira.reciclo.R;
 
@@ -64,8 +65,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         stockItem = mDataset.get(position);
-        //TODO: look for firebase drawable storing
-        //holder.itemImage.setImageDrawable();
+        Picasso.with(context).load(stockItem.getImgUrl()).into(holder.itemImage);
         holder.itemAmount.setText(stockItem.getAmount()+"");
         //holder.itemImage.Resource();
 
