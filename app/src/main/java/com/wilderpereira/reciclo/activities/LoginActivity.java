@@ -104,11 +104,11 @@ public class LoginActivity extends AppCompatActivity {
 
     /** Creates a new user's node */
     private void addNewUser(String userId, String name){
-        String stockKey = FirebaseUtils.createEmptyStock();
+        FirebaseUtils.createEmptyStock();
         DatabaseReference myRef = Utils.getDatabase().getReference("users").child(userId);
         Map<String, String> user = new HashMap<>();
         user.put("name",name);
-        user.put("stock",stockKey);
+        user.put("stock",FirebaseUtils.UID);
         myRef.setValue(user);
     }
 }

@@ -1,6 +1,7 @@
 package com.wilderpereira.reciclo.fragments;
 
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,9 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.wilderpereira.reciclo.adapters.StockAdapter;
 import com.wilderpereira.reciclo.models.StockItem;
 import com.wilderpereira.reciclo.R;
+import com.wilderpereira.reciclo.utils.Utils;
 
 import java.util.ArrayList;
 
@@ -20,7 +27,10 @@ import java.util.ArrayList;
  */
 public class StockFragment extends Fragment {
 
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
+    private final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    private StockAdapter adapter;
+    private ArrayList<StockItem> stockItens;
 
     @Nullable
     @Override
@@ -28,7 +38,10 @@ public class StockFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.stock_fragment, container, false);
 
-        StockAdapter adapter =  new StockAdapter(loadItens());
+        stockItens = new ArrayList<>();
+        loadItens();
+
+        adapter =  new StockAdapter(stockItens);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -42,15 +55,25 @@ public class StockFragment extends Fragment {
     }
 
 
-    private ArrayList<StockItem> loadItens(){
-        ArrayList<StockItem> stockItens = new ArrayList<>(); //TODO: get from Stock.class
-        for (int i = 0; i < 8; i++){
-            StockItem stockItem = new StockItem();
-            stockItem.setName("Item "+i+1);
-            stockItem.setAmount(68*i);
-            stockItens.add(stockItem);
-        }
-        return stockItens;
+    private void loadItens(){
+
+        DatabaseReference databaseReference = Utils.getDatabase().getReference().child("stocks/"+uid+"/itens");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                    StockItem item = postSnapshot.getValue(StockItem.class);
+                    stockItens.add(item);
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+        });
     }
 
 }

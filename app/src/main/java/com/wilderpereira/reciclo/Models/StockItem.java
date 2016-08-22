@@ -14,14 +14,16 @@ public class StockItem {
 
     private String name;
     private int amount;
+    private String imgUrl;
 
     public StockItem(){
 
     }
 
-    public StockItem(String name, int amount) {
+    public StockItem(String name, int amount, String imgUrl) {
         this.name = name;
         this.amount = amount;
+        this.imgUrl = imgUrl;
     }
 
     public String getName() {
@@ -40,11 +42,20 @@ public class StockItem {
         this.amount = amount;
     }
 
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("name", name);
         result.put("amount", amount);
+        result.put("imgUrl", imgUrl);
         return result;
     }
 
