@@ -1,4 +1,7 @@
 package com.wilderpereira.reciclo.utils;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.design.widget.TextInputLayout;
 import android.util.Log;
 
@@ -86,4 +89,13 @@ public class Utils {
         return mDatabase;
     }
 
+    public static boolean isUserConnectionOk(Context context) {
+        ConnectivityManager cm =
+                (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return  activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
+
+    }
 }
