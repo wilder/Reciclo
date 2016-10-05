@@ -13,7 +13,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         Picasso.Builder builder = new Picasso.Builder(this);
-        builder.downloader(new OkHttpDownloader(this,Integer.MAX_VALUE));
+        builder.downloader(new OkHttpDownloader(getCacheDir(), Integer.MAX_VALUE));
         Picasso built = builder.build();
         built.setIndicatorsEnabled(true);
         built.setLoggingEnabled(true);

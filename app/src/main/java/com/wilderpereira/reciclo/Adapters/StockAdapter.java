@@ -9,11 +9,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
-import com.wilderpereira.reciclo.models.StockItem;
 import com.wilderpereira.reciclo.R;
+import com.wilderpereira.reciclo.models.StockItem;
 import com.wilderpereira.reciclo.utils.Utils;
 
 import java.util.ArrayList;
@@ -70,7 +69,6 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
         stockItem = mDataset.get(position);
 
         if (Utils.isUserConnectionOk(context)) {
-            //Picasso.with(context).load(stockItem.getImgUrl()).fetch();
             Picasso.with(context).load(stockItem.getImgUrl())
                     .noFade()
                     .into(holder.itemImage);

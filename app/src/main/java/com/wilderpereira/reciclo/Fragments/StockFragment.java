@@ -61,6 +61,7 @@ public class StockFragment extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                stockItens.clear();
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     StockItem item = postSnapshot.getValue(StockItem.class);
                     stockItens.add(item);
