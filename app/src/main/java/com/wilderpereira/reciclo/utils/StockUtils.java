@@ -4,13 +4,12 @@ import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.wilderpereira.reciclo.adapters.StockAdapter;
 import com.wilderpereira.reciclo.models.StockItem;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.wilderpereira.reciclo.utils.Utils.uid;
+import static com.wilderpereira.reciclo.utils.FirebaseUtils.UID;
 
 /**
  * Created by Wilder on 05/10/16.
@@ -19,7 +18,7 @@ import static com.wilderpereira.reciclo.utils.Utils.uid;
 public class StockUtils {
 
     public static void changeAmount(StockItem stockItem, TextView tvAmount, int newAmount) {
-        DatabaseReference databaseReference = Utils.getDatabase().getReference().child("stocks/"+uid+"/itens");
+        DatabaseReference databaseReference = FirebaseUtils.getDatabase().getReference().child("stocks/"+UID+"/itens");
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put("/" +stockItem.getName() + "/" + "amount", newAmount);
         databaseReference.updateChildren(childUpdates);
@@ -30,7 +29,7 @@ public class StockUtils {
     /** Returns stock key that is used to create the new users' stock */
     public static void createEmptyStock(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = Utils.getDatabase().getReference();
+        DatabaseReference myRef = FirebaseUtils.getDatabase().getReference();
 
         //Default items TODO: Create default items on firebase
         Map<String, Object> stockItensNode = new HashMap<>();
@@ -43,7 +42,7 @@ public class StockUtils {
 
         //Creates the new node
         Map<String, Object> stockNode = new HashMap<>();
-        stockNode.put("stocks/"+uid+"/itens",stockItensNode);
+        stockNode.put("stocks/"+UID+"/itens",stockItensNode);
         myRef.updateChildren(stockNode);
 
     }

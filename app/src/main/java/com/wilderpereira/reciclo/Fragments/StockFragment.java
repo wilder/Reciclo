@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.wilderpereira.reciclo.adapters.StockAdapter;
 import com.wilderpereira.reciclo.models.StockItem;
 import com.wilderpereira.reciclo.R;
+import com.wilderpereira.reciclo.utils.FirebaseUtils;
 import com.wilderpereira.reciclo.utils.Utils;
 
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ public class StockFragment extends Fragment {
 
     private void loadItens(){
 
-        DatabaseReference databaseReference = Utils.getDatabase().getReference().child("stocks/"+uid+"/itens");
+        DatabaseReference databaseReference = FirebaseUtils.getDatabase().getReference().child("stocks/"+uid+"/itens");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {

@@ -16,6 +16,7 @@ import com.wilderpereira.reciclo.models.Recipe;
 import com.wilderpereira.reciclo.models.Resource;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.models.Steps;
+import com.wilderpereira.reciclo.utils.FirebaseUtils;
 import com.wilderpereira.reciclo.utils.Utils;
 
 public class  RecipeActivity extends AppCompatActivity {
@@ -35,7 +36,7 @@ public class  RecipeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
 
-        mDatabase = Utils.getDatabase().getReference();
+        mDatabase = FirebaseUtils.getDatabase().getReference();
 
         Bundle extras = getIntent().getExtras();
         Recipe recipe = (Recipe) extras.getSerializable(getString(R.string.recipe_extra_key));

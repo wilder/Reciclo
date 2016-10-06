@@ -18,10 +18,6 @@ import com.wilderpereira.reciclo.utils.StockUtils;
 import com.wilderpereira.reciclo.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.wilderpereira.reciclo.utils.Utils.uid;
 
 /**
  * Created by Wilder on 12/07/16.

@@ -18,6 +18,7 @@ import com.google.firebase.database.Query;
 import com.wilderpereira.reciclo.activities.RecipeActivity;
 import com.wilderpereira.reciclo.models.Recipe;
 import com.wilderpereira.reciclo.R;
+import com.wilderpereira.reciclo.utils.FirebaseUtils;
 import com.wilderpereira.reciclo.utils.Utils;
 import com.wilderpereira.reciclo.viewholder.ItemViewHolder;
 
@@ -37,7 +38,7 @@ public abstract class ListFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.recycle_fragment, container, false);
 
-        mDatabase = Utils.getDatabase().getReference();
+        mDatabase = FirebaseUtils.getDatabase().getReference();
 
         Query postsQuery = getQuery(mDatabase);
         adapter = new FirebaseRecyclerAdapter<Recipe, ItemViewHolder>(Recipe.class, R.layout.item_item,
@@ -46,14 +47,14 @@ public abstract class ListFragment extends Fragment {
             protected void populateViewHolder(final ItemViewHolder viewHolder, final Recipe model, final int position) {
                 final DatabaseReference recipeRef = getRef(position);
 
-                if(model.favoritedBy.containsKey(Utils.uid)){
+                if(model.favoritedBy.containsKey(FirebaseUtils.UID)){
                     viewHolder.imgStar.setImageResource(R.drawable.circle);
                 }
 
                 viewHolder.imgStar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Utils.onStarClicked(recipeRef, Utils.uid);
+                        Utils.onStarClicked(recipeRef, FirebaseUtils.UID);
                     }
                 });
 

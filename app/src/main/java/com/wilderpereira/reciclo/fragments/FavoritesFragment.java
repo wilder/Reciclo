@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.wilderpereira.reciclo.R;
+import com.wilderpereira.reciclo.utils.FirebaseUtils;
 import com.wilderpereira.reciclo.utils.Utils;
 
 /**
@@ -29,6 +30,6 @@ public class FavoritesFragment extends ListFragment {
     @Override
     public Query getQuery(DatabaseReference databaseReference) {
         return databaseReference.child("favorites")
-                .child(Utils.uid);
+                .child(FirebaseUtils.UID);
     }
 }

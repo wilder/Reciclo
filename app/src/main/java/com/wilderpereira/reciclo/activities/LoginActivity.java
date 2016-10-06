@@ -18,6 +18,7 @@ import com.wilderpereira.reciclo.fragments.SignUpFragment;
 import com.wilderpereira.reciclo.models.StockItem;
 import com.wilderpereira.reciclo.utils.FirebaseUtils;
 import com.wilderpereira.reciclo.utils.FragmentUtils;
+import com.wilderpereira.reciclo.utils.StockUtils;
 import com.wilderpereira.reciclo.utils.Utils;
 
 import java.util.ArrayList;
@@ -104,8 +105,8 @@ public class LoginActivity extends AppCompatActivity {
 
     /** Creates a new user's node */
     private void addNewUser(String userId, String name){
-        FirebaseUtils.createEmptyStock();
-        DatabaseReference myRef = Utils.getDatabase().getReference("users").child(userId);
+        StockUtils.createEmptyStock();
+        DatabaseReference myRef = FirebaseUtils.getDatabase().getReference("users").child(userId);
         Map<String, String> user = new HashMap<>();
         user.put("name",name);
         user.put("stock",FirebaseUtils.UID);
