@@ -29,4 +29,5 @@
     <string name="invalid_credentials">Invalid credentials</string>
     <string name="user_exists">This user already exists</string>
     <string name="stars">" stars"</string>
+    <string name="all_recipes">All</string>
 </resources>
