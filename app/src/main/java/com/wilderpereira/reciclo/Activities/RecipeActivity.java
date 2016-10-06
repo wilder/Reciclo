@@ -1,7 +1,7 @@
 package com.wilderpereira.reciclo.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -12,12 +12,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.models.Recipe;
 import com.wilderpereira.reciclo.models.Resource;
-import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.models.Steps;
 import com.wilderpereira.reciclo.utils.FirebaseUtils;
-import com.wilderpereira.reciclo.utils.Utils;
 
 public class  RecipeActivity extends AppCompatActivity {
 

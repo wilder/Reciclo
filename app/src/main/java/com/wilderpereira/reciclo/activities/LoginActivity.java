@@ -1,31 +1,25 @@
 package com.wilderpereira.reciclo.activities;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.fragments.LoginFragment;
 import com.wilderpereira.reciclo.fragments.SignUpFragment;
-import com.wilderpereira.reciclo.models.StockItem;
 import com.wilderpereira.reciclo.utils.FirebaseUtils;
 import com.wilderpereira.reciclo.utils.FragmentUtils;
 import com.wilderpereira.reciclo.utils.StockUtils;
-import com.wilderpereira.reciclo.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 

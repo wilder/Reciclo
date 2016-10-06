@@ -1,18 +1,11 @@
 package com.wilderpereira.reciclo.fragments;
 
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
-import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.utils.FirebaseUtils;
-import com.wilderpereira.reciclo.utils.Utils;
 
 /**
  * A simple {@link Fragment} subclass.

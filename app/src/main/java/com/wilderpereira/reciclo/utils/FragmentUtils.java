@@ -3,8 +3,6 @@ package com.wilderpereira.reciclo.utils;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
-import com.wilderpereira.reciclo.R;
-
 /**
  * Created by Wilder on 17/07/16.
  */

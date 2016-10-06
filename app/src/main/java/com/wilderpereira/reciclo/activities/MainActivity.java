@@ -1,25 +1,20 @@
 package com.wilderpereira.reciclo.activities;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 
+import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.adapters.ViewPagerAdapter;
 import com.wilderpereira.reciclo.fragments.FavoritesFragment;
-import com.wilderpereira.reciclo.fragments.ListFragment;
 import com.wilderpereira.reciclo.fragments.MainListFragment;
 import com.wilderpereira.reciclo.fragments.StockFragment;
-import com.wilderpereira.reciclo.R;
 
 public class MainActivity extends AppCompatActivity {
 

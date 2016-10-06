@@ -18,12 +18,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.activities.MainActivity;
 import com.wilderpereira.reciclo.utils.Utils;
-
-import java.util.concurrent.Executor;
 
 /**
  * A simple {@link Fragment} subclass.

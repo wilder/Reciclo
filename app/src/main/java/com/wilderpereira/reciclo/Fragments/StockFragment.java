@@ -1,7 +1,6 @@
 package com.wilderpereira.reciclo.fragments;
 
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,11 +14,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.adapters.StockAdapter;
 import com.wilderpereira.reciclo.models.StockItem;
-import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.utils.FirebaseUtils;
-import com.wilderpereira.reciclo.utils.Utils;
 
 import java.util.ArrayList;
 
