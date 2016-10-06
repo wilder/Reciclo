@@ -9,13 +9,19 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.models.StockItem;
+import com.wilderpereira.reciclo.utils.StockUtils;
 import com.wilderpereira.reciclo.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.wilderpereira.reciclo.utils.Utils.uid;
 
 /**
  * Created by Wilder on 12/07/16.
@@ -83,9 +89,9 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
             @Override
             public void onClick(View v) {
                 stockItem = mDataset.get(position);
-                int newAmount = stockItem.getAmount()-1;
-                stockItem.setAmount(newAmount);
-                holder.itemAmount.setText(newAmount+"");
+                int amountMinusOne = stockItem.getAmount()-1;
+                int newAmount = amountMinusOne < 0 ? 0 : amountMinusOne;
+                StockUtils.changeAmount(stockItem, holder.itemAmount, newAmount);
             }
         });
 
@@ -94,8 +100,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
             public void onClick(View v) {
                 stockItem = mDataset.get(position);
                 int newAmount = stockItem.getAmount()+1;
-                stockItem.setAmount(newAmount);
-                holder.itemAmount.setText(newAmount+"");
+                StockUtils.changeAmount(stockItem, holder.itemAmount, newAmount);
             }
         });
 
