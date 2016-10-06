@@ -1,8 +1,9 @@
-package com.wilderpereira.reciclo.fragments;
+package com.wilderpereira.reciclo.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -24,33 +25,26 @@ import java.util.ArrayList;
 /**
  * Created by Wilder on 10/07/16.
  */
-public class StockFragment extends Fragment {
+public class StockActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
     private StockAdapter adapter;
     private ArrayList<StockItem> stockItens;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.stock_fragment, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.stock_fragment);
 
         stockItens = new ArrayList<>();
         loadItens();
 
         adapter =  new StockAdapter(stockItens);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        return view;
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
 

@@ -12,6 +12,7 @@
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.RecipeActivity" />
         <activity android:name=".activities.LoginActivity"/>
+        <activity android:name=".activities.StockActivity" />
         <activity android:name=".activities.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
