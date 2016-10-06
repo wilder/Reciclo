@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.adapters.StockAdapter;
 import com.wilderpereira.reciclo.models.StockItem;
 import com.wilderpereira.reciclo.utils.FirebaseUtils;
+import com.wilderpereira.reciclo.utils.StockUtils;
 
 import java.util.ArrayList;
 
@@ -31,11 +33,23 @@ public class StockActivity extends AppCompatActivity {
     private final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
     private StockAdapter adapter;
     private ArrayList<StockItem> stockItens;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.stock_fragment);
+
+        toolbar = (Toolbar) findViewById(R.id.stockbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_remove_black_24dp);
+        getSupportActionBar().setTitle(R.string.stock);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                StockActivity.this.finish();
+            }
+        });
 
         stockItens = new ArrayList<>();
         loadItens();
