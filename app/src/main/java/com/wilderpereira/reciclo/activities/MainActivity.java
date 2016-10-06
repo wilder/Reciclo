@@ -1,5 +1,6 @@
 package com.wilderpereira.reciclo.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -12,9 +13,9 @@ import android.widget.LinearLayout;
 
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.adapters.ViewPagerAdapter;
+import com.wilderpereira.reciclo.fragments.AllRecipesFragment;
 import com.wilderpereira.reciclo.fragments.FavoritesFragment;
 import com.wilderpereira.reciclo.fragments.MainListFragment;
-import com.wilderpereira.reciclo.fragments.StockFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,12 +72,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(final ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new StockFragment(), getString(R.string.stock));
+        adapter.addFragment(new AllRecipesFragment(), getString(R.string.all_recipes));
         adapter.addFragment(new MainListFragment(), getString(R.string.recycle));
         adapter.addFragment(new FavoritesFragment(), getString(R.string.favorites));
         viewPager.setAdapter(adapter);
     }
 
+    //todo: make classes implement setupDrawer and create impl
     private void setupDrawer(){
         // Set the adapter for the list view
 
@@ -96,6 +98,14 @@ public class MainActivity extends AppCompatActivity {
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
+
+        mDrawerLayout.findViewById(R.id.stock).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, StockActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.setDrawerListener(mDrawerToggle);
