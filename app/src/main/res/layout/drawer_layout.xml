@@ -75,6 +75,14 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:text="Estoque"
+            android:id="@+id/stock"/>
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:text="Sobre"/>
 
         <TextView
