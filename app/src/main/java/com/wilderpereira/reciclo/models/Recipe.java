@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by Wilder on 11/07/16.
@@ -47,7 +48,7 @@ public class Recipe implements Serializable {
      * Resources needed no make the recipe
      */
     @Exclude
-    private ArrayList<Resource> resources;
+    private  Map<String, Object> resources;
 
     /**
      * Stores the item name and the amount missing
@@ -62,17 +63,17 @@ public class Recipe implements Serializable {
     private boolean canBeMadeWithAvaibleStock = true;
 
     @Exclude
-    private static final int MAX_ITEMS_MISSING = 2;
+    private static final int MAX_ITEMS_MISSING = 1;
 
-    public ArrayList<Resource> getResources() {
+    public Recipe() {
+    }
+
+    public Map<String, Object> getResources() {
         return resources;
     }
 
-    public void setResources(ArrayList<Resource> resources) {
+    public void setResources(Map<String, Object> resources) {
         this.resources = resources;
-    }
-
-    public Recipe() {
     }
 
     public String getName() {
@@ -147,6 +148,7 @@ public class Recipe implements Serializable {
         result.put("resource",resource);
         result.put("favoriteCount",favoriteCount);
         result.put("favoritedBy",favoritedBy);
+        result.put("resources",resources);
         return result;
     }
 
@@ -155,11 +157,13 @@ public class Recipe implements Serializable {
      * and the user has at least all of the items needed for the recipe
      */
     @Exclude
-    private void canBeMade(List<StockItem> stock){
-        for(Resource r : this.resources){
+    public boolean canBeMade(List<StockItem> stock){
+        //TODO CHANGE TO MAP
+        for (Map.Entry<String, Object> r : this.resources.entrySet())
+        {
             for (StockItem s : stock) {
-                if (r.getName().equals(s.getName())){
-                    int amountMissing = r.getAmount()-s.getAmount();
+                if (r.getKey().equals(s.getName())){
+                    int amountMissing = Integer.parseInt(r.getValue().toString())-s.getAmount();
 
                     if (amountMissing > 0){
                         missingItems.put(s.getName(),amountMissing);
@@ -172,5 +176,6 @@ public class Recipe implements Serializable {
             }
         }
 
+        return this.canBeMadeWithAvaibleStock;
     }
 }
