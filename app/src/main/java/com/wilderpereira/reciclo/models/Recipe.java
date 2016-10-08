@@ -132,11 +132,11 @@ public class Recipe implements Serializable {
         this.missingItems = missingItems;
     }
 
-    public boolean isCanBeMadeWithAvaibleStock() {
+    public boolean canBeMadeWithAvaibleStock() {
         return canBeMadeWithAvaibleStock;
     }
 
-    public void setCanBeMadeWithAvaibleStock(boolean canBeMadeWithAvaibleStock) {
+    public void canBeMadeWithAvaibleStock(boolean canBeMadeWithAvaibleStock) {
         this.canBeMadeWithAvaibleStock = canBeMadeWithAvaibleStock;
     }
 
