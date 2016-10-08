@@ -153,12 +153,11 @@ public class Recipe implements Serializable {
     }
 
     /**
-     * Item cam be made if there isn't much items missing
-     * and the user has at least all of the items needed for the recipe
+     * Item cam be made if the user has all of the items
+     * needed for the recipe, not considering the amount
      */
     @Exclude
     public boolean canBeMade(List<StockItem> stock){
-        //TODO CHANGE TO MAP
         for (Map.Entry<String, Object> r : this.resources.entrySet())
         {
             for (StockItem s : stock) {
@@ -167,10 +166,12 @@ public class Recipe implements Serializable {
 
                     if (amountMissing > 0){
                         missingItems.put(s.getName(),amountMissing);
-                        if(amountMissing > MAX_ITEMS_MISSING){
-                            canBeMadeWithAvaibleStock = false;
-                        }
                     }
+
+                    if(canBeMadeWithAvaibleStock && s.getAmount() == 0){
+                        canBeMadeWithAvaibleStock = false;
+                    }
+
                     break;
                 }
             }
