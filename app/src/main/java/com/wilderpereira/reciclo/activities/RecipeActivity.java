@@ -61,7 +61,6 @@ public class  RecipeActivity extends AppCompatActivity {
         getResources(resources);
     }
 
-    //TODO: REMOVE WHEN CHANGE TO MAP, GET RESOURCES BY FROM OBJECT AND CALL METHOD TO SET TEXTVIEWS
     public void getResources(String resourcesId){
         mDatabase.child("resources").child(resourcesId).child("resource").addListenerForSingleValueEvent(
                 new ValueEventListener() {
