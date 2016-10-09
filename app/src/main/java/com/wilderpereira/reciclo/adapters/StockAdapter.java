@@ -78,7 +78,6 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
         }
 
         holder.itemAmount.setText(stockItem.getAmount()+"");
-        //holder.itemImage.Resource();
 
         holder.btnLess.setOnClickListener(new View.OnClickListener() {
             @Override
