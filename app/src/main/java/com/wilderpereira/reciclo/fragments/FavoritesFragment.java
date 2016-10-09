@@ -14,10 +14,8 @@ public class FavoritesFragment extends ListFragment {
 
 
     public FavoritesFragment() {
-        // Required empty public constructor
+        TAG = "FavoritesFragment";
     }
-
-    //Make onclick abstract and override here for the starClick
 
 
     @Override
@@ -25,4 +23,10 @@ public class FavoritesFragment extends ListFragment {
         return databaseReference.child("favorites")
                 .child(FirebaseUtils.UID);
     }
+
+    @Override
+    public boolean shouldCheckStock() {
+        return false;
+    }
+
 }
