@@ -51,6 +51,13 @@ public class Recipe implements Serializable {
     private  Map<String, Object> resources;
 
     /**
+     * Uid of the recipe
+     */
+    @Exclude
+    private String uid;
+
+
+    /**
      * Stores the item name and the amount missing
      */
     @Exclude
@@ -114,6 +121,14 @@ public class Recipe implements Serializable {
 
     public void setFavoriteCount(int favoriteCount) {
         this.favoriteCount = favoriteCount;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public Map<String, Boolean> getFavoritedBy() {
