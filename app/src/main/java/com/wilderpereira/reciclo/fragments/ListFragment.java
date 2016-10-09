@@ -33,7 +33,6 @@ public abstract class ListFragment extends Fragment {
     private DatabaseReference mDatabase;
     private RecipesAdapter adapter;
     List<StockItem> stock = new ArrayList<>();
-    List<Recipe> recipes;
     String TAG = "ListFragment";
 
 
@@ -43,7 +42,7 @@ public abstract class ListFragment extends Fragment {
         View view = inflater.inflate(R.layout.recycle_fragment, container, false);
 
         mDatabase = FirebaseUtils.getDatabase().getReference();
-        recipes = new ArrayList<>();
+        final List<Recipe> recipes = new ArrayList<>();
 
         loadItens();
 
@@ -58,15 +57,17 @@ public abstract class ListFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 recipes.clear();
+
                 Log.d(TAG, "onDataChange");
+
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     Recipe item = postSnapshot.getValue(Recipe.class);
                     item.setUid(postSnapshot.getKey());
                     if(!shouldCheckStock() || item.canBeMade(stock)) {
                         recipes.add(item);
                     }
-                    adapter.notifyDataSetChanged();
                 }
+                adapter.notifyDataSetChanged();
             }
 
             @Override
