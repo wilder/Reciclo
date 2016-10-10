@@ -11,7 +11,6 @@
     <string name="recipe_extra_key">recipe_extra</string>
     <string name="LIST_MODE_KEY">LIST_MODE_KEY</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -30,4 +29,6 @@
     <string name="user_exists">This user already exists</string>
     <string name="stars">" stars"</string>
     <string name="all_recipes">All</string>
+    <string name="need_more_items">Need more items</string>
+    <string name="item_available">Ready to be Made!</string>
 </resources>

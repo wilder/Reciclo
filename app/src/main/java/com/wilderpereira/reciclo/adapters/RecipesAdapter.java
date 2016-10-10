@@ -94,7 +94,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
         holder.favoriteCount.setText(""+recipe.getFavoriteCount());
 
         if(!recipe.canBeMadeWithAvaibleStock()){
-            holder.canBeMade.setText("Faltam x itens");
+            holder.canBeMade.setText(R.string.need_more_items);
             holder.canBeMade.setBackgroundColor(context.getResources().getColor(R.color.colorNotAvailable));
         }
 

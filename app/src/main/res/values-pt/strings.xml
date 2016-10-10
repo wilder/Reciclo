@@ -21,4 +21,6 @@
     <string name="user_exists">Um usuário com esse email já existe</string>
     <string name="stars">" stars"</string>
     <string name="all_recipes">Todos</string>
+    <string name="need_more_items">Faltam itens</string>
+    <string name="item_available">Pronto para ser feito!</string>
 </resources>
