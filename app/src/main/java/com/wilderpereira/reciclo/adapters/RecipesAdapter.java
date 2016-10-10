@@ -2,6 +2,7 @@ package com.wilderpereira.reciclo.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import com.google.firebase.database.Query;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.activities.RecipeActivity;
 import com.wilderpereira.reciclo.models.Recipe;
+import com.wilderpereira.reciclo.models.Resource;
 import com.wilderpereira.reciclo.utils.FirebaseUtils;
 import com.wilderpereira.reciclo.utils.Utils;
 
@@ -36,21 +38,19 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, andØØ
     // you provide access to all the views for a data item in a view holder
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
 
-        public LinearLayout linearItem;
-        public TextView itemName;
-        public TextView favoriteCount;
-        public TextView recycleCount;
-        public ImageView itemImage;
-        public ImageView imgStar;
-        public ImageButton btnFavorite;
-        public ImageButton btnFShare;
-        public String star;
+        LinearLayout linearItem;
+        TextView itemName;
+        TextView favoriteCount;
+        TextView recycleCount;
+        TextView canBeMade;
+        ImageView itemImage;
+        ImageView imgStar;
+        String star;
 
-
-        public ViewHolder(View v) {
+        ViewHolder(View v) {
             super(v);
             itemName = (TextView) v.findViewById(R.id.tv_item_name);
             recycleCount = (TextView) v.findViewById(R.id.tv_recycled_count);
@@ -58,8 +58,9 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
             linearItem = (LinearLayout) v.findViewById(R.id.linear_item);
             imgStar = (ImageView) v.findViewById(R.id.iv_favorite);
             favoriteCount = (TextView) v.findViewById(R.id.tv_favorite_count);
+            canBeMade = (TextView) v.findViewById(R.id.tv_can_be_made);
             star = v.getResources().getString(R.string.stars);
-        }
+         }
     }
 
     public RecipesAdapter(List<Recipe> myDataset, Query query) {
@@ -91,6 +92,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
         holder.itemName.setText(recipe.getName());
         holder.recycleCount.setText(""+recipe.getRecycleCount());
         holder.favoriteCount.setText(""+recipe.getFavoriteCount());
+
+        if(!recipe.canBeMadeWithAvaibleStock()){
+            holder.canBeMade.setText("Faltam x itens");
+            holder.canBeMade.setBackgroundColor(context.getResources().getColor(R.color.colorNotAvailable));
+        }
 
         // Set click listener for the whole post view
         holder.itemView.setOnClickListener(new View.OnClickListener() {

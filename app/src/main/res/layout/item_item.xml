@@ -55,6 +55,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/tv_can_be_made"
                     android:padding="4dp"
                     android:background="@color/colorPrimary"
                     android:textColor="@android:color/white"
