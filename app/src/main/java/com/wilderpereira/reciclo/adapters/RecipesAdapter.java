@@ -30,7 +30,6 @@ import static com.wilderpereira.reciclo.R.layout.item_item;
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHolder>{
     private List<Recipe> mDataset;
-    private Recipe recipe;
     private Context context;
     private Query query;
 
@@ -88,17 +87,12 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
 
-        recipe = mDataset.get(position);
+        final Recipe recipe = mDataset.get(position);
         final DatabaseReference recipeRef = query.getRef().child(recipe.getUid());
 
         holder.itemName.setText(recipe.getName());
         holder.recycleCount.setText("Reciclado "+recipe.getRecycleCount()+" vezes.");
         holder.favoriteCount.setText("Favoritado "+recipe.getFavoriteCount()+" vezes.");
-
-        Log.d("adapter", "recipe.favoritedBy.containsKey(FirebaseUtils.UID) "+recipe.favoritedBy.containsKey(FirebaseUtils.UID));
-        if(recipe.favoritedBy.containsKey(FirebaseUtils.UID)){
-            holder.imgStar.setImageResource(R.drawable.circle);
-        }
 
         // Set click listener for the whole post view
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +113,12 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
             }
         });
 
+        Log.d("adapter", recipe.getName()+"favoritedBy.containsKey(FirebaseUtils.UID) "+recipe.favoritedBy.containsKey(FirebaseUtils.UID));
+        if(recipe.favoritedBy.containsKey(FirebaseUtils.UID)){
+            holder.imgStar.setImageResource(R.drawable.circle);
+        }else{
+            holder.imgStar.setImageResource(R.drawable.star);
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
