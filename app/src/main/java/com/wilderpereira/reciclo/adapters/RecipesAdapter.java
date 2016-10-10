@@ -55,8 +55,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
             itemName = (TextView) v.findViewById(R.id.tv_item_name);
             recycleCount = (TextView) v.findViewById(R.id.tv_recycled_count);
             itemImage = (ImageView) v.findViewById(R.id.iv_item_image);
-            btnFavorite = (ImageButton) v.findViewById(R.id.ib_favorite);
-            btnFShare = (ImageButton) v.findViewById(R.id.ib_share);
             linearItem = (LinearLayout) v.findViewById(R.id.linear_item);
             imgStar = (ImageView) v.findViewById(R.id.iv_favorite);
             favoriteCount = (TextView) v.findViewById(R.id.tv_favorite_count);
@@ -91,8 +89,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
         final DatabaseReference recipeRef = query.getRef().child(recipe.getUid());
 
         holder.itemName.setText(recipe.getName());
-        holder.recycleCount.setText("Reciclado "+recipe.getRecycleCount()+" vezes.");
-        holder.favoriteCount.setText("Favoritado "+recipe.getFavoriteCount()+" vezes.");
+        holder.recycleCount.setText(""+recipe.getRecycleCount());
+        holder.favoriteCount.setText(""+recipe.getFavoriteCount());
 
         // Set click listener for the whole post view
         holder.itemView.setOnClickListener(new View.OnClickListener() {
