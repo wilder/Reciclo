@@ -46,42 +46,60 @@
                     android:textSize="24sp"
                     android:text="Item Name"/>
 
-                <TextView
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="23"
-                    android:id="@+id/tv_favorite_count"/>
             </LinearLayout>
 
-
             <LinearLayout
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="8dp"
-                android:weightSum="10"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <TextView
+                    android:padding="4dp"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@android:color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ready to be Made!"/>
 
                 <LinearLayout
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:layout_weight="6"
+                    android:layout_weight="5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
-                    <!--TODO: Add imageview-->
+
+                    <ImageView
+                        android:src="@android:drawable/star_big_on"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp" />
                     <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="23"
+                        android:id="@+id/tv_favorite_count"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="5"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@android:drawable/btn_radio"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp" />
+                    <TextView
+                        android:layout_marginLeft="8dp"
                         android:id="@+id/tv_recycled_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="* Reciclado x vezes"/>
+                        android:text="1231"/>
                 </LinearLayout>
-
             </LinearLayout>
-
-
 
         </LinearLayout>
 
