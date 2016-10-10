@@ -63,6 +63,7 @@ public abstract class ListFragment extends Fragment {
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     Recipe item = postSnapshot.getValue(Recipe.class);
                     item.setUid(postSnapshot.getKey());
+                    Log.d(TAG, item.getName()+" canbemade: "+item.canBeMade(stock));
                     if(!shouldCheckStock() || item.canBeMade(stock)) {
                         recipes.add(item);
                     }
