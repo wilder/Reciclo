@@ -18,6 +18,10 @@ import com.wilderpereira.reciclo.models.Resource;
 import com.wilderpereira.reciclo.models.Steps;
 import com.wilderpereira.reciclo.utils.FirebaseUtils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class  RecipeActivity extends AppCompatActivity {
 
     private ImageView itemImage;
@@ -54,11 +58,14 @@ public class  RecipeActivity extends AppCompatActivity {
         favoriteCount.setText(recipe.getFavoriteCount()+"");
         recyleCount.setText(recipe.getRecycleCount()+"");
 
+        recipe.getMissingItems();
+
         String preparationId = recipe.getPreparation();
         getPreparation(preparationId);
 
-        String resources = recipe.getResource();
-        getResources(resources);
+        String resourceId = recipe.getResource();
+        getResources(resourceId);
+
     }
 
     public void getResources(String resourcesId){
@@ -68,7 +75,7 @@ public class  RecipeActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot resourceSnapshot: dataSnapshot.getChildren()) {
                             Resource res = resourceSnapshot.getValue(Resource.class);
-                            addTextViewToLinearLayout(linearIngredients,res.getName() + " x"+res.getAmount());
+                            addTextViewToLinearLayout(linearIngredients,res.getName() + " x",res.getAmount()+"");
                         }
 
                     }
@@ -87,7 +94,7 @@ public class  RecipeActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot preparationSnapshot: dataSnapshot.getChildren()) {
                             Steps step = preparationSnapshot.getValue(Steps.class);
-                            addTextViewToLinearLayout(linearPreparation,step.getDescription());
+                            addTextViewToLinearLayout(linearPreparation,step.getDescription(),"");
                         }
                     }
 
@@ -99,13 +106,20 @@ public class  RecipeActivity extends AppCompatActivity {
     }
 
     //TODO: Move to helper class
-    private void addTextViewToLinearLayout(LinearLayout container, String text){
+    private void addTextViewToLinearLayout(LinearLayout container, String text1, String text2){
         TextView textView = new TextView(this);
-        textView.setText(" - "+text);
+        textView.setText(text1+" "+text2);
         textView.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
         container.addView(textView);
+    }
+
+    //TODO: Change Recipes Resources' nodes name to type|name, split and get name
+    private void displayMissingItems(Map<String, Integer> items, LinearLayout container){
+        for (Map.Entry<String, Integer> r : items.entrySet()) {
+            addTextViewToLinearLayout(container,r.getValue()+"x",r.getKey()+" missing");
+        }
     }
 
 }
