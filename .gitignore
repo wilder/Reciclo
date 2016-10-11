@@ -1,7 +1,9 @@
-google-services.json
-*.iml
-.idea
-.DS_Store
-build/
-.gradle
 .gradle/
+.idea/
+Reciclo.iml
+Reciclo2.iml
+app/app.iml
+app/google-services.json
+build/
+projectFilesBackup/
+app/src/main/java/MainTest.java
