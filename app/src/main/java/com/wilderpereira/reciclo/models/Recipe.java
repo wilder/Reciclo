@@ -3,11 +3,9 @@ package com.wilderpereira.reciclo.models;
 import com.google.firebase.database.Exclude;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Created by Wilder on 11/07/16.
@@ -68,9 +66,6 @@ public class Recipe implements Serializable {
      */
     @Exclude
     private boolean canBeMadeWithAvaibleStock = true;
-
-    @Exclude
-    private static final int MAX_ITEMS_MISSING = 1;
 
     public Recipe() {
     }
@@ -149,10 +144,6 @@ public class Recipe implements Serializable {
 
     public boolean canBeMadeWithAvaibleStock() {
         return canBeMadeWithAvaibleStock;
-    }
-
-    public void canBeMadeWithAvaibleStock(boolean canBeMadeWithAvaibleStock) {
-        this.canBeMadeWithAvaibleStock = canBeMadeWithAvaibleStock;
     }
 
     public Map toMap(){
