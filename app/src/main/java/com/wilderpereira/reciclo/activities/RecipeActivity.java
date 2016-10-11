@@ -2,7 +2,9 @@ package com.wilderpereira.reciclo.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -33,11 +35,17 @@ public class  RecipeActivity extends AppCompatActivity {
     private LinearLayout linearPreparation;
     private Button btnReciclo;
     private DatabaseReference mDatabase;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         mDatabase = FirebaseUtils.getDatabase().getReference();
 
@@ -45,6 +53,7 @@ public class  RecipeActivity extends AppCompatActivity {
         Recipe recipe = (Recipe) extras.getSerializable(getString(R.string.recipe_extra_key));
 
         itemName = (TextView) findViewById(R.id.tv_item);
+
         owner = (TextView) findViewById(R.id.tv_by);
         favoriteCount = (TextView) findViewById(R.id.tv_favorite_count);
         recyleCount = (TextView) findViewById(R.id.tv_recycled_count);
@@ -57,6 +66,8 @@ public class  RecipeActivity extends AppCompatActivity {
         itemName.setText(recipe.getName());
         favoriteCount.setText(recipe.getFavoriteCount()+"");
         recyleCount.setText(recipe.getRecycleCount()+"");
+
+        getSupportActionBar().setTitle(recipe.getName());
 
         recipe.getMissingItems();
 
@@ -120,6 +131,16 @@ public class  RecipeActivity extends AppCompatActivity {
         for (Map.Entry<String, Integer> r : items.entrySet()) {
             addTextViewToLinearLayout(container,r.getValue()+"x",r.getKey()+" missing");
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handling arrow click to go back
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }
