@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.models.Recipe;
 import com.wilderpereira.reciclo.models.Resource;
@@ -60,12 +61,16 @@ public class  RecipeActivity extends AppCompatActivity {
         linearIngredients = (LinearLayout) findViewById(R.id.linear_ingredients);
         linearPreparation = (LinearLayout) findViewById(R.id.linear_preparation);
         btnReciclo = (Button) findViewById(R.id.btn_reciclo);
-        itemImage = (ImageView) findViewById(R.id.iv_item_image);
+        itemImage = (ImageView) findViewById(R.id.iv_recipe_image);
 
 
         itemName.setText(recipe.getName());
         favoriteCount.setText(recipe.getFavoriteCount()+"");
         recyleCount.setText(recipe.getRecycleCount()+"");
+
+        Picasso.with(this).load(recipe.getImgUrl())
+                .noFade()
+                .into(itemImage);
 
         getSupportActionBar().setTitle(recipe.getName());
 

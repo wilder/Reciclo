@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
+import com.squareup.picasso.Picasso;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.activities.RecipeActivity;
 import com.wilderpereira.reciclo.models.Recipe;
@@ -89,6 +90,10 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
 
         final Recipe recipe = mDataset.get(position);
         final DatabaseReference recipeRef = query.getRef().child(recipe.getUid());
+
+        Picasso.with(context).load(recipe.getImgUrl())
+                .noFade()
+                .into(holder.itemImage);
 
         holder.itemName.setText(recipe.getName());
         holder.recycleCount.setText(""+recipe.getRecycleCount());
