@@ -168,6 +168,7 @@ public class Recipe implements Serializable {
         result.put("favoriteCount",favoriteCount);
         result.put("favoritedBy",favoritedBy);
         result.put("resources",resources);
+        result.put("imgUrl",imgUrl);
         return result;
     }
 
