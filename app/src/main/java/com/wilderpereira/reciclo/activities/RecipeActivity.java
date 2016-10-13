@@ -86,7 +86,8 @@ public class  RecipeActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot resourceSnapshot: dataSnapshot.getChildren()) {
                             Resource res = resourceSnapshot.getValue(Resource.class);
-                            addTextViewToLinearLayout(linearIngredients,res.getName() + " x",res.getAmount()+"");
+                            addTextViewToLinearLayout(linearIngredients,"● "+res.getAmount(),res.getName());
+
                         }
 
                     }
