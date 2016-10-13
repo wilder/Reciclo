@@ -72,9 +72,12 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:src="@android:drawable/star_big_on"
-                        android:layout_width="15dp"
-                        android:layout_height="15dp" />
+                        android:id="@+id/iv_recipe_star"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_star"
+                        android:tint="@color/colorAccent"/>
+
                     <TextView
                         android:gravity="center"
                         android:layout_width="match_parent"
@@ -90,9 +93,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
-                        android:src="@android:drawable/btn_radio"
-                        android:layout_width="15dp"
-                        android:layout_height="15dp" />
+                        android:id="@+id/iv_recipe_recycle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_recycle"
+                        android:tint="@color/colorAccent"/>>
                     <TextView
                         android:layout_marginLeft="8dp"
                         android:id="@+id/tv_recycled_count"

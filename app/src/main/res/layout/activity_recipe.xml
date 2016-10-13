@@ -95,6 +95,7 @@
                                     android:text="23"
                                     android:id="@+id/tv_favorite_count"/>
                                 <ImageView
+                                    android:layout_marginLeft="4dp"
                                     android:id="@+id/iv_recipe_star"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -117,6 +118,7 @@
                                     android:text="23"
                                     android:id="@+id/tv_recycled_count"/>
                                 <ImageView
+                                    android:layout_marginLeft="4dp"
                                     android:id="@+id/iv_recipe_recycle"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
