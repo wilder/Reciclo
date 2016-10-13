@@ -22,11 +22,11 @@
                     android:layout_height="160dp" />
 
                 <ImageView
-
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:id="@+id/iv_favorite"
+                    android:src="@drawable/ic_star"
                     android:clickable="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
