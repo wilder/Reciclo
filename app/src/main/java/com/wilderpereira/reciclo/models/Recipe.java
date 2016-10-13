@@ -43,6 +43,11 @@ public class Recipe implements Serializable {
     public Map<String, Boolean> favoritedBy = new HashMap<>();
 
     /**
+     * the recipe image url
+     */
+    private String imgUrl;
+
+    /**
      * Resources needed no make the recipe
      */
     @Exclude
@@ -124,6 +129,14 @@ public class Recipe implements Serializable {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public Map<String, Boolean> getFavoritedBy() {
