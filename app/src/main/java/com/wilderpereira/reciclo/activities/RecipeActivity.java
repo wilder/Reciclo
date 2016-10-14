@@ -23,6 +23,7 @@ import com.wilderpereira.reciclo.models.Recipe;
 import com.wilderpereira.reciclo.models.Resource;
 import com.wilderpereira.reciclo.models.Steps;
 import com.wilderpereira.reciclo.utils.FirebaseUtils;
+import com.wilderpereira.reciclo.utils.UiUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -92,7 +93,7 @@ public class  RecipeActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot resourceSnapshot: dataSnapshot.getChildren()) {
                             Resource res = resourceSnapshot.getValue(Resource.class);
-                            addTextViewToLinearLayout(linearIngredients,"● ",res.getAmount()+"",res.getName());
+                            UiUtils.addTextViewToLinearLayout(linearIngredients,"● ",res.getAmount()+"",res.getName());
 
                         }
 
@@ -113,7 +114,7 @@ public class  RecipeActivity extends AppCompatActivity {
                         int i = 0;
                         for (DataSnapshot preparationSnapshot: dataSnapshot.getChildren()) {
                             Steps step = preparationSnapshot.getValue(Steps.class);
-                            addTextViewToLinearLayout(linearPreparation,++i+" ",step.getDescription(),"");
+                            UiUtils.addTextViewToLinearLayout(linearPreparation,++i+" ",step.getDescription(),"");
                         }
                     }
 
@@ -124,42 +125,10 @@ public class  RecipeActivity extends AppCompatActivity {
                 });
     }
 
-    //TODO: Move to helper class
-    private void addTextViewToLinearLayout(LinearLayout container, String s, String text1, String text2){
-        TextView textView = new TextView(this);
-        LinearLayout ll = new LinearLayout(this);
-        float pixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 12, getResources().getDisplayMetrics());
-
-        ll.setOrientation(LinearLayout.HORIZONTAL);
-        ll.setGravity(Gravity.CENTER_VERTICAL);
-        ll.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT));
-
-        //TODO: Create method to add/create textviews
-        textView.setText(s);
-        textView.setTextColor(getResources().getColor(R.color.colorPrimary));
-        textView.setTextSize(pixels);
-        textView.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT));
-        ll.addView(textView);
-
-        textView = new TextView(this);
-        textView.setText(text1+" "+text2);
-        textView.setTextSize(pixels-10);
-        textView.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT));
-        ll.addView(textView);
-
-        container.addView(ll);
-    }
-
     //TODO: Change Recipes Resources' nodes name to type|name, split and get name
     private void displayMissingItems(Map<String, Integer> items, LinearLayout container){
         for (Map.Entry<String, Integer> r : items.entrySet()) {
-            addTextViewToLinearLayout(container,"",r.getValue()+"x",r.getKey()+" missing");
+            UiUtils.addTextViewToLinearLayout(container,"",r.getValue()+"x",r.getKey()+" missing");
         }
     }
 
