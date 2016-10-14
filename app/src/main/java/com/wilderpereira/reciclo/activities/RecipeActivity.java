@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,7 +32,6 @@ public class  RecipeActivity extends AppCompatActivity {
 
     private ImageView itemImage;
     private TextView itemName;
-    private TextView owner;
     private TextView favoriteCount;
     private TextView recyleCount;
     private LinearLayout linearIngredients;
@@ -55,7 +57,6 @@ public class  RecipeActivity extends AppCompatActivity {
 
         itemName = (TextView) findViewById(R.id.tv_item);
 
-        owner = (TextView) findViewById(R.id.tv_by);
         favoriteCount = (TextView) findViewById(R.id.tv_favorite_count);
         recyleCount = (TextView) findViewById(R.id.tv_recycled_count);
         linearIngredients = (LinearLayout) findViewById(R.id.linear_ingredients);
@@ -91,7 +92,7 @@ public class  RecipeActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot resourceSnapshot: dataSnapshot.getChildren()) {
                             Resource res = resourceSnapshot.getValue(Resource.class);
-                            addTextViewToLinearLayout(linearIngredients,"● "+res.getAmount(),res.getName());
+                            addTextViewToLinearLayout(linearIngredients,"● ",res.getAmount()+"",res.getName());
 
                         }
 
@@ -109,9 +110,10 @@ public class  RecipeActivity extends AppCompatActivity {
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        int i = 0;
                         for (DataSnapshot preparationSnapshot: dataSnapshot.getChildren()) {
                             Steps step = preparationSnapshot.getValue(Steps.class);
-                            addTextViewToLinearLayout(linearPreparation,step.getDescription(),"");
+                            addTextViewToLinearLayout(linearPreparation,++i+" ",step.getDescription(),"");
                         }
                     }
 
@@ -123,19 +125,41 @@ public class  RecipeActivity extends AppCompatActivity {
     }
 
     //TODO: Move to helper class
-    private void addTextViewToLinearLayout(LinearLayout container, String text1, String text2){
+    private void addTextViewToLinearLayout(LinearLayout container, String s, String text1, String text2){
         TextView textView = new TextView(this);
-        textView.setText(text1+" "+text2);
-        textView.setLayoutParams(new LinearLayout.LayoutParams(
+        LinearLayout ll = new LinearLayout(this);
+        float pixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 12, getResources().getDisplayMetrics());
+
+        ll.setOrientation(LinearLayout.HORIZONTAL);
+        ll.setGravity(Gravity.CENTER_VERTICAL);
+        ll.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
-        container.addView(textView);
+
+        //TODO: Create method to add/create textviews
+        textView.setText(s);
+        textView.setTextColor(getResources().getColor(R.color.colorPrimary));
+        textView.setTextSize(pixels);
+        textView.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+        ll.addView(textView);
+
+        textView = new TextView(this);
+        textView.setText(text1+" "+text2);
+        textView.setTextSize(pixels-10);
+        textView.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+        ll.addView(textView);
+
+        container.addView(ll);
     }
 
     //TODO: Change Recipes Resources' nodes name to type|name, split and get name
     private void displayMissingItems(Map<String, Integer> items, LinearLayout container){
         for (Map.Entry<String, Integer> r : items.entrySet()) {
-            addTextViewToLinearLayout(container,r.getValue()+"x",r.getKey()+" missing");
+            addTextViewToLinearLayout(container,"",r.getValue()+"x",r.getKey()+" missing");
         }
     }
 
