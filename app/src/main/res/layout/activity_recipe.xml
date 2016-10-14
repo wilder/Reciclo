@@ -72,13 +72,6 @@
                         android:text="Item Tutorial"
                         android:textSize="36sp"/>
 
-                    <TextView
-                        android:layout_marginBottom="@dimen/activity_vertical_margin"
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="By Wilder"
-                        android:id="@+id/tv_by"/>
 
                         <LinearLayout
                             android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -142,12 +135,20 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:textSize="20sp"
+                        android:layout_marginTop="8dp"
+                        android:textSize="24sp"
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/colorPrimary"
                         android:text="@string/ingredients"/>
+
+                    <View
+                        android:layout_margin="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary"
+                        />
 
                     <LinearLayout
                         android:id="@+id/linear_ingredients"
@@ -173,12 +174,20 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:textSize="20sp"
+                        android:layout_marginTop="8dp"
+                        android:textSize="24sp"
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/colorPrimary"
                         android:text="@string/preparation"/>
+
+                    <View
+                        android:layout_margin="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary"
+                        />
 
                     <LinearLayout
                         android:orientation="vertical"
