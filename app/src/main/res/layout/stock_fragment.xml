@@ -10,15 +10,14 @@
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <include
-            layout="@layout/bar"
+        <android.support.v7.widget.Toolbar
             android:id="@+id/stockbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-]
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v7.widget.RecyclerView

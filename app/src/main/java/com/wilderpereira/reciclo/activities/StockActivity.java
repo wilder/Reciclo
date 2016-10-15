@@ -42,7 +42,8 @@ public class StockActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.stockbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_remove_black_24dp);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle(R.string.stock);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
