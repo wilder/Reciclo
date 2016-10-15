@@ -15,8 +15,6 @@ public class App extends Application {
         Picasso.Builder builder = new Picasso.Builder(this);
         builder.downloader(new OkHttpDownloader(getCacheDir(), Integer.MAX_VALUE));
         Picasso built = builder.build();
-        built.setIndicatorsEnabled(true);
-        built.setLoggingEnabled(true);
         Picasso.setSingletonInstance(built);
 
     }
