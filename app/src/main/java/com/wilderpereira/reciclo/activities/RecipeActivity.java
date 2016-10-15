@@ -74,7 +74,7 @@ public class  RecipeActivity extends AppCompatActivity {
                 .noFade()
                 .into(itemImage);
 
-        getSupportActionBar().setTitle(recipe.getName());
+        getSupportActionBar().setTitle("");
 
         recipe.getMissingItems();
 
