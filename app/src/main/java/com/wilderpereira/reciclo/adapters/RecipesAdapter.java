@@ -2,25 +2,23 @@ package com.wilderpereira.reciclo.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
+import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
-import com.squareup.picasso.Picasso;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.activities.RecipeActivity;
 import com.wilderpereira.reciclo.models.Recipe;
-import com.wilderpereira.reciclo.models.Resource;
 import com.wilderpereira.reciclo.utils.FirebaseUtils;
 import com.wilderpereira.reciclo.utils.Utils;
 
@@ -48,7 +46,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
         TextView favoriteCount;
         TextView recycleCount;
         TextView canBeMade;
-        ImageView itemImage;
+        SimpleDraweeView itemImage;
         ImageView imgStar;
         String star;
 
@@ -56,7 +54,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
             super(v);
             itemName = (TextView) v.findViewById(R.id.tv_item_name);
             recycleCount = (TextView) v.findViewById(R.id.tv_recycled_count);
-            itemImage = (ImageView) v.findViewById(R.id.iv_item_image);
+            itemImage = (SimpleDraweeView) v.findViewById(R.id.iv_item_image);
             linearItem = (LinearLayout) v.findViewById(R.id.linear_item);
             imgStar = (ImageView) v.findViewById(R.id.iv_favorite);
             favoriteCount = (TextView) v.findViewById(R.id.tv_favorite_count);
@@ -91,9 +89,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
         final Recipe recipe = mDataset.get(position);
         final DatabaseReference recipeRef = query.getRef().child(recipe.getUid());
 
-        Picasso.with(context).load(recipe.getImgUrl())
-                .noFade()
-                .into(holder.itemImage);
+        Uri uri = Uri.parse(recipe.getImgUrl());
+        holder.itemImage.setImageURI(uri);
 
         holder.itemName.setText(recipe.getName());
         holder.recycleCount.setText(""+recipe.getRecycleCount());

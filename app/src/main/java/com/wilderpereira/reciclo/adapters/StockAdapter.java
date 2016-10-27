@@ -1,20 +1,18 @@
 package com.wilderpereira.reciclo.adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.NetworkPolicy;
-import com.squareup.picasso.Picasso;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.models.StockItem;
 import com.wilderpereira.reciclo.utils.StockUtils;
-import com.wilderpereira.reciclo.utils.Utils;
 
 import java.util.ArrayList;
 
@@ -32,7 +30,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
     // you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView itemImage;
+        public SimpleDraweeView itemImage;
         public TextView itemAmount;
         public ImageButton btnLess;
         public ImageButton btnMore;
@@ -42,7 +40,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
             itemAmount = (TextView) v.findViewById(R.id.count);
             btnLess = (ImageButton) v.findViewById(R.id.ib_less);
             btnMore = (ImageButton) v.findViewById(R.id.ib_more);
-            itemImage = (ImageView) v.findViewById(R.id.iv_resource);
+            itemImage = (SimpleDraweeView) v.findViewById(R.id.iv_resource);
         }
     }
 
@@ -68,14 +66,8 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         stockItem = mDataset.get(position);
-
-        if (Utils.isUserConnectionOk(context)) {
-            Picasso.with(context).load(stockItem.getImgUrl())
-                    .noFade()
-                    .into(holder.itemImage);
-        } else {
-            Picasso.with(context).load(stockItem.getImgUrl()).networkPolicy(NetworkPolicy.OFFLINE).into(holder.itemImage);
-        }
+        Uri uri = Uri.parse(stockItem.getImgUrl());
+        holder.itemImage.setImageURI(uri);
 
         holder.itemAmount.setText(stockItem.getAmount()+"");
 

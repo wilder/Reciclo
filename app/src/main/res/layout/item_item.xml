@@ -22,7 +22,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageView
+                <com.facebook.drawee.view.SimpleDraweeView
                     android:scaleType="fitXY"
                     android:id="@+id/iv_item_image"
                     android:background="@color/colorAccent"

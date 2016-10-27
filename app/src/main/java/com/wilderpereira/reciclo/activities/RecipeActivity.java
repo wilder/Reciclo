@@ -1,23 +1,20 @@
 package com.wilderpereira.reciclo.activities;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.models.Recipe;
 import com.wilderpereira.reciclo.models.Resource;
@@ -25,13 +22,11 @@ import com.wilderpereira.reciclo.models.Steps;
 import com.wilderpereira.reciclo.utils.FirebaseUtils;
 import com.wilderpereira.reciclo.utils.UiUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class  RecipeActivity extends AppCompatActivity {
 
-    private ImageView itemImage;
+    private SimpleDraweeView itemImage;
     private TextView itemName;
     private TextView favoriteCount;
     private TextView recyleCount;
@@ -63,16 +58,15 @@ public class  RecipeActivity extends AppCompatActivity {
         linearIngredients = (LinearLayout) findViewById(R.id.linear_ingredients);
         linearPreparation = (LinearLayout) findViewById(R.id.linear_preparation);
         btnReciclo = (Button) findViewById(R.id.btn_reciclo);
-        itemImage = (ImageView) findViewById(R.id.iv_recipe_image);
+        itemImage = (SimpleDraweeView) findViewById(R.id.iv_recipe_image);
 
 
         itemName.setText(recipe.getName());
         favoriteCount.setText(recipe.getFavoriteCount()+"");
         recyleCount.setText(recipe.getRecycleCount()+"");
 
-        Picasso.with(this).load(recipe.getImgUrl())
-                .noFade()
-                .into(itemImage);
+        Uri uri = Uri.parse(recipe.getImgUrl());
+        itemImage.setImageURI(uri);
 
         getSupportActionBar().setTitle("");
 
