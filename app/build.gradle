@@ -27,7 +27,6 @@ dependencies {
     compile 'com.android.support:support-v4:24.2.1'
     compile 'com.google.firebase:firebase-auth:9.6.1'
     compile 'com.google.firebase:firebase-database:9.6.1'
-    compile 'com.firebaseui:firebase-ui-database:0.4.3'
     compile 'com.facebook.fresco:fresco:0.14.1'
     testCompile 'junit:junit:4.12'
 }
