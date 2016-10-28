@@ -31,4 +31,6 @@
     <string name="all_recipes">All</string>
     <string name="need_more_items">Need more items</string>
     <string name="item_available">Ready to be Made!</string>
+
+    <string name="facebook_app_id">xxxxxxxxxx</string>
 </resources>
