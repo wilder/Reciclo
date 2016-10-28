@@ -6,11 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.share.widget.ShareDialog;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,6 +25,7 @@ import com.wilderpereira.reciclo.models.Resource;
 import com.wilderpereira.reciclo.models.Steps;
 import com.wilderpereira.reciclo.utils.FirebaseUtils;
 import com.wilderpereira.reciclo.utils.UiUtils;
+import com.wilderpereira.reciclo.utils.Utils;
 
 import java.util.Map;
 
@@ -35,6 +40,7 @@ public class  RecipeActivity extends AppCompatActivity {
     private Button btnReciclo;
     private DatabaseReference mDatabase;
     private Toolbar toolbar;
+    private ShareDialog shareDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +83,10 @@ public class  RecipeActivity extends AppCompatActivity {
 
         String resourceId = recipe.getResource();
         getResources(resourceId);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        //CallbackManager callbackManager = CallbackManager.Factory.create();
+        shareDialog = new ShareDialog(this);
 
     }
 
@@ -136,4 +146,7 @@ public class  RecipeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void reciclo(View view) {
+        Utils.reciclo(shareDialog);
+    }
 }

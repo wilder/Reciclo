@@ -203,6 +203,7 @@
             </android.support.v7.widget.CardView>
 
             <Button
+                android:onClick="reciclo"
                 android:layout_margin="@dimen/activity_horizontal_margin"
                 android:background="@color/colorAccent"
                 android:textColor="@android:color/white"

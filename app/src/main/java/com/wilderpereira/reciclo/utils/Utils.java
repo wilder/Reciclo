@@ -3,9 +3,12 @@ package com.wilderpereira.reciclo.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.support.design.widget.TextInputLayout;
 import android.util.Log;
 
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -84,5 +87,17 @@ public class Utils {
         return  activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
 
+    }
+
+    public static void reciclo(ShareDialog shareDialog){
+        //TODO Get random phrases
+        ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                .setContentTitle("Reciclô")
+                .setContentDescription(
+                        "Veja só o que acabei de fazer utilizando o Reciclô!")
+                .setContentUrl(Uri.parse("http://developers.facebook.com/android"))
+                .build();
+
+        shareDialog.show(linkContent);
     }
 }
