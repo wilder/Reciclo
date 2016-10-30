@@ -25,10 +25,14 @@
             </intent-filter>
         </activity>
 
-        <provider android:authorities="com.facebook.app.FacebookContentProviderxxxxxxxxx"
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1296182820413191"
             android:name="com.facebook.FacebookContentProvider"
             android:exported="true" />
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="b7ed9e1f20c19997d62ab1e83ac761f2e7d9a7a8" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
