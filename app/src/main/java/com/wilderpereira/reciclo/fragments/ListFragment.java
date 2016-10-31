@@ -14,6 +14,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.mopub.nativeads.MoPubRecyclerAdapter;
+import com.mopub.nativeads.MoPubStaticNativeAdRenderer;
+import com.mopub.nativeads.RequestParameters;
+import com.mopub.nativeads.ViewBinder;
 import com.wilderpereira.reciclo.R;
 import com.wilderpereira.reciclo.adapters.RecipesAdapter;
 import com.wilderpereira.reciclo.models.Recipe;
@@ -32,6 +36,7 @@ public abstract class ListFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private DatabaseReference mDatabase;
     private RecipesAdapter adapter;
+    private MoPubRecyclerAdapter myMoPubAdapter;
     List<StockItem> stock = new ArrayList<>();
     String TAG = "ListFragment";
 
@@ -49,8 +54,22 @@ public abstract class ListFragment extends Fragment {
         Query recipesQuery = getQuery(mDatabase);
         adapter = new RecipesAdapter(recipes, recipesQuery);
 
+        myMoPubAdapter = new MoPubRecyclerAdapter(getActivity(), adapter);
+        // Create an ad renderer and view binder that describe your native ad layout.
+        ViewBinder myViewBinder = new ViewBinder.Builder(R.layout.ad_item)
+                .titleId(R.id.tv_ad_title)
+                .textId(R.id.tv_ad_description)
+                .mainImageId(R.id.iv_ad_main_image)
+                .iconImageId(R.id.iv_ad_icon)
+                .callToActionId(R.id.btn_ad_call_to_action)
+                .build();
+
+        MoPubStaticNativeAdRenderer myRenderer = new MoPubStaticNativeAdRenderer(myViewBinder);
+
+        myMoPubAdapter.registerAdRenderer(myRenderer);
+
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler);
-        mRecyclerView.setAdapter(adapter);
+        mRecyclerView.setAdapter(myMoPubAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         recipesQuery.addValueEventListener(new ValueEventListener() {
@@ -81,6 +100,18 @@ public abstract class ListFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        // Optional targeting parameters
+        RequestParameters parameters = new RequestParameters.Builder()
+                .keywords("recycling recycle nature diy")
+                .build();
+
+        myMoPubAdapter.loadAds("d5830609fcd442d2b9aad32b1e51b3e7", parameters);
+
+        super.onResume();
+    }
+
     public abstract Query getQuery(DatabaseReference databaseReference);
 
     public abstract boolean shouldCheckStock();
@@ -105,4 +136,9 @@ public abstract class ListFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onDestroy() {
+        myMoPubAdapter.destroy();
+        super.onDestroy();
+    }
 }
