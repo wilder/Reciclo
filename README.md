@@ -3,7 +3,8 @@
 Android Recycling App
 
 <a href="http://i.imgur.com/yObsQ3b.jpg"><img src="http://i.imgur.com/yObsQ3b.jpg" height="350"></a>
-<a href="http://i.imgur.com/q0X6Tv0.jpg"><img src="http://i.imgur.com/q0X6Tv0.jpg" height="350"></a>
+<a href="http://i.imgur.com/D0fuF7g.jpg"><img src="http://i.imgur.com/D0fuF7g.jpg" height="350"></a>
+<a href="http://i.imgur.com/Fr7TWXQ.jpg"><img src="http://i.imgur.com/Fr7TWXQ.jpg" height="350"></a>
 <a href="http://i.imgur.com/0OcYIza.png"><img src="http://i.imgur.com/0OcYIza.png" height="350"></a>
 
 Firebase Reciclo Recipes' management tool's repo: https://github.com/viniciuslcpereira97/Reciclo
