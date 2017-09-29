@@ -1,59 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.wilderpereira.reciclo.activities.RecipeActivity">
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 tools:context="com.wilderpereira.reciclo.activities.RecipeActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar_note"
         android:layout_width="match_parent"
         android:layout_height="248dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsingtoolbarlayout_note"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
-            app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/iv_recipe_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
                 android:fitsSystemWindows="true"
-                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
-                app:layout_collapseMode="parallax"/>
+                android:scaleType="fitXY"
+                app:layout_collapseMode="parallax"
+                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"/>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_scrollFlags="scroll|enterAlways"
-                app:layout_collapseMode="pin" />
+                app:layout_collapseMode="pin"
+                app:layout_scrollFlags="scroll|enterAlways"/>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:fillViewport="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
             <android.support.v7.widget.CardView
@@ -64,71 +63,80 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/tv_item"
-                        android:gravity="center"
-                        android:layout_margin="@dimen/activity_horizontal_margin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Item Tutorial"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:gravity="center"
+                        android:text="@string/item_tutorial"
                         android:textSize="36sp"/>
 
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin">
+
                         <LinearLayout
-                            android:layout_marginBottom="@dimen/activity_vertical_margin"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="5"
+                            android:gravity="center">
 
-                            <LinearLayout
-                                android:gravity="center"
-                                android:layout_weight="5"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content">
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="23"
-                                    android:id="@+id/tv_favorite_count"/>
-                                <ImageView
-                                    android:layout_marginLeft="4dp"
-                                    android:id="@+id/iv_recipe_star"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_star"
-                                    android:tint="@color/colorAccent"/>
-                                <TextView
-                                    android:layout_marginLeft="5dp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
-                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/tv_favorite_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:text="23"/>
 
-                            <LinearLayout
-                                android:gravity="center"
-                                android:layout_weight="5"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content">
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="23"
-                                    android:id="@+id/tv_recycled_count"/>
-                                <ImageView
-                                    android:layout_marginLeft="4dp"
-                                    android:id="@+id/iv_recipe_recycle"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_recycle"
-                                    android:tint="@color/colorAccent"/>
-                            </LinearLayout>
+                            <ImageView
+                                android:id="@+id/iv_recipe_star"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@drawable/ic_star"
+                                android:tint="@color/colorAccent"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginStart="5dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="5"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tv_recycled_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:text="23"/>
+
+                            <ImageView
+                                android:id="@+id/iv_recipe_recycle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@drawable/ic_recycle"
+                                android:tint="@color/colorAccent"/>
+                        </LinearLayout>
 
                     </LinearLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -136,28 +144,27 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_marginTop="8dp"
-                        android:textSize="24sp"
-                        android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="@string/ingredients"
                         android:textColor="@color/colorPrimary"
-                        android:text="@string/ingredients"/>
+                        android:textSize="24sp"/>
 
                     <View
-                        android:layout_margin="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:layout_margin="8dp"
                         android:background="@color/colorPrimary"
                         />
 
                     <LinearLayout
                         android:id="@+id/linear_ingredients"
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/activity_vertical_margin"/>
-
+                        android:layout_margin="@dimen/activity_vertical_margin"
+                        android:orientation="vertical"/>
 
 
                 </LinearLayout>
@@ -165,9 +172,9 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -175,27 +182,27 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_marginTop="8dp"
-                        android:textSize="24sp"
-                        android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="@string/preparation"
                         android:textColor="@color/colorPrimary"
-                        android:text="@string/preparation"/>
+                        android:textSize="24sp"/>
 
                     <View
-                        android:layout_margin="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:layout_margin="8dp"
                         android:background="@color/colorPrimary"
                         />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:id="@+id/linear_preparation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/activity_vertical_margin"/>
+                        android:layout_margin="@dimen/activity_vertical_margin"
+                        android:orientation="vertical"/>
 
 
                 </LinearLayout>
@@ -203,14 +210,14 @@
             </android.support.v7.widget.CardView>
 
             <Button
-                android:onClick="reciclo"
-                android:layout_margin="@dimen/activity_horizontal_margin"
-                android:background="@color/colorAccent"
-                android:textColor="@android:color/white"
+                android:id="@+id/btn_reciclo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:background="@color/colorAccent"
+                android:onClick="reciclo"
                 android:text="@string/recicl"
-                android:id="@+id/btn_reciclo"/>
+                android:textColor="@android:color/white"/>
 
         </LinearLayout>
 

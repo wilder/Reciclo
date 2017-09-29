@@ -44,14 +44,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="24sp"
-                        android:text="Item Name"/>
+                        android:text="@string/item_name"/>
 
                     <TextView
                         android:id="@+id/tv_ad_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
-                        android:text="Item Name"/>
+                        android:text="@string/item_name"/>
 
                 </LinearLayout>
             </LinearLayout>

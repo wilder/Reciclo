@@ -25,6 +25,7 @@
             <LinearLayout
                 android:gravity="center_vertical"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -35,7 +36,7 @@
                     android:textColor="@android:color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Wilder Pereira"/>
+                    android:text="@string/wilder_pereira"/>
 
                 <TextView
                     android:id="@+id/recicled_count"
@@ -43,7 +44,7 @@
                     android:textColor="@android:color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="* Recycled"/>
+                    android:text="@string/recycled"/>
 
 
             </LinearLayout>
@@ -68,14 +69,14 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="Meu Perfil"/>
+            android:text="@string/meu_perfil"/>
 
         <TextView
             android:gravity="center_vertical"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="Estoque"
+            android:text="@string/estoque"
             android:id="@+id/stock"/>
 
         <TextView
@@ -83,21 +84,21 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="Sobre"/>
+            android:text="@string/sobre"/>
 
         <TextView
             android:gravity="center_vertical"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="Remover Ads"/>
+            android:text="@string/remover_ads"/>
 
         <TextView
             android:gravity="center_vertical"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="Sair"/>
+            android:text="@string/sair"/>
 
     </LinearLayout>
 

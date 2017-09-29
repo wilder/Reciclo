@@ -28,7 +28,7 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create an Account"/>
+            android:text="@string/create_an_account"/>
 
     </LinearLayout>
 
@@ -83,12 +83,12 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="F"
+                android:text="@string/f"
                 android:id="@+id/btn_facebook_sign_up"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="G"
+                android:text="@string/g"
                 android:id="@+id/btn_google_sign_up"/>
         </LinearLayout>
 

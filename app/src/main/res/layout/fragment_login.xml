@@ -74,12 +74,12 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="F"
+                android:text="@string/f"
                 android:id="@+id/btn_facebook_login"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="G"
+                android:text="@string/g"
                 android:id="@+id/btn_google_login"/>
         </LinearLayout>
 
