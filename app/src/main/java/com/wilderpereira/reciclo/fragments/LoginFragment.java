@@ -70,7 +70,7 @@ public class LoginFragment extends Fragment {
                             .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-                                    Log.d("Login", "signInWithEmail:onComplete:" + task.isSuccessful());
+                                    Log.d(getResources().getString(R.string.login), getResources().getString(R.string.signinemail_oncomplete) + task.isSuccessful());
 
                                     // If sign in fails, display a message to the user. If sign in succeeds
                                     // the auth state listener will be notified and logic to handle the

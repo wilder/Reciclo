@@ -45,4 +45,25 @@
     <string name="f">F</string>
     <string name="g">G</string>
     <string name="create_an_account">Create an Account</string>
+
+    <!-- Java codes -->
+    <string name="AllRecipesFragment">AllRecipesFragment</string>
+    <string name="recipes">Recipes</string>
+    <string name="FavoritesFragment">FavoritesFragment</string>
+    <string name="ListFragment">ListFragment</string>
+    <string name="onDataChange">onDataChange</string>
+    <string name="canbemade"> canbemade: </string>
+    <string name="onCancelled">onCancelled</string>
+    <string name="recycling_nature">recycling recycle nature diy</string>
+    <string name="ad_code">d5830609fcd442d2b9aad32b1e51b3e7</string>
+    <string name="stocks">stocks/</string>
+    <string name="itens">/itens</string>
+    <string name="signed_in">onAuthStateChanged:signed_in:</string>
+    <string name="signed_out">onAuthStateChanged:signed_out</string>
+    <string name="users">users</string>
+    <string name="name">name</string>
+    <string name="stock_lowercase">stock</string>
+    <string name="signinemail_oncomplete">signInWithEmail:onComplete:</string>
+
+
 </resources>
