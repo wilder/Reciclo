@@ -33,4 +33,16 @@
     <string name="item_available">Ready to be Made!</string>
 
     <string name="facebook_app_id">1296182820413191</string>
+    <string name="item_tutorial">Item Tutorial</string>
+    <string name="item_name">Item Name</string>
+    <string name="wilder_pereira">Wilder Pereira</string>
+    <string name="recycled">* Recycled</string>
+    <string name="meu_perfil">Meu Perfil</string>
+    <string name="estoque">Estoque</string>
+    <string name="sobre">Sobre</string>
+    <string name="remover_ads">Remover Ads</string>
+    <string name="sair">Sair</string>
+    <string name="f">F</string>
+    <string name="g">G</string>
+    <string name="create_an_account">Create an Account</string>
 </resources>
