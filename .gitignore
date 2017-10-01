@@ -7,3 +7,4 @@ app/google-services.json
 build/
 projectFilesBackup/
 app/src/main/java/MainTest.java
+local.properties
