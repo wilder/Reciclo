@@ -45,10 +45,10 @@ public class LoginActivity extends AppCompatActivity {
                     //TODO: create new users node.
                     addNewUser(user.getUid(),user.getEmail());
 
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    Log.d(TAG, getResources().getString(R.string.signed_in) + user.getUid());
                 } else {
                     // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                    Log.d(TAG, getResources().getString(R.string.signed_out));
                 }
             }
         };
@@ -100,10 +100,10 @@ public class LoginActivity extends AppCompatActivity {
     /** Creates a new user's node */
     private void addNewUser(String userId, String name){
         StockUtils.createEmptyStock();
-        DatabaseReference myRef = FirebaseUtils.getDatabase().getReference("users").child(userId);
+        DatabaseReference myRef = FirebaseUtils.getDatabase().getReference(getResources().getString(R.string.users)).child(userId);
         Map<String, String> user = new HashMap<>();
-        user.put("name",name);
-        user.put("stock",FirebaseUtils.UID);
+        user.put(getResources().getString(R.string.name),name);
+        user.put(getResources().getString(R.string.stock_lowercase),FirebaseUtils.UID);
         myRef.setValue(user);
     }
 }

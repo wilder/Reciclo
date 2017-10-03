@@ -38,7 +38,7 @@ public abstract class ListFragment extends Fragment {
     private RecipesAdapter adapter;
     private MoPubRecyclerAdapter myMoPubAdapter;
     List<StockItem> stock = new ArrayList<>();
-    String TAG = "ListFragment";
+    String TAG = getResources().getString(R.string.ListFragment);
 
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -77,12 +77,12 @@ public abstract class ListFragment extends Fragment {
             public void onDataChange(DataSnapshot snapshot) {
                 recipes.clear();
 
-                Log.d(TAG, "onDataChange");
+                Log.d(TAG, getResources().getString(R.string.onDataChange));
 
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     Recipe item = postSnapshot.getValue(Recipe.class);
                     item.setUid(postSnapshot.getKey());
-                    Log.d(TAG, item.getName()+" canbemade: "+item.canBeMade(stock));
+                    Log.d(TAG, item.getName()+ getResources().getString(R.string.canbemade) +item.canBeMade(stock));
                     if(!shouldCheckStock() || item.canBeMade(stock)) {
                         recipes.add(item);
                     }
@@ -92,7 +92,7 @@ public abstract class ListFragment extends Fragment {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.d(TAG, "onCancelled");
+                Log.d(TAG, getResources().getString(R.string.onCancelled));
             }
 
         });
@@ -104,10 +104,10 @@ public abstract class ListFragment extends Fragment {
     public void onResume() {
         // Optional targeting parameters
         RequestParameters parameters = new RequestParameters.Builder()
-                .keywords("recycling recycle nature diy")
+                .keywords(getResources().getString(R.string.recycling_nature))
                 .build();
 
-        myMoPubAdapter.loadAds("d5830609fcd442d2b9aad32b1e51b3e7", parameters);
+        myMoPubAdapter.loadAds(getResources().getString(R.string.ad_code), parameters);
 
         super.onResume();
     }
@@ -118,7 +118,7 @@ public abstract class ListFragment extends Fragment {
 
 
     public void loadItens(){
-        DatabaseReference databaseReference = FirebaseUtils.getDatabase().getReference().child("stocks/"+FirebaseUtils.UID+"/itens");
+        DatabaseReference databaseReference = FirebaseUtils.getDatabase().getReference().child(getResources().getString(R.string.stocks)+FirebaseUtils.UID+getResources().getString(R.string.itens));
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
